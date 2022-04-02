@@ -19,13 +19,15 @@ const Job: React.VFC<JobProps> = ({
   jobEnd,
 }) => {
   return (
-    <li className="pt-8 border-t rounded-sm first:pt-0 first:border-none border-t-neutral-300">
+    <li className="relative pt-8 border-t rounded-sm first:pt-0 first:border-none border-t-neutral-300">
       <div className="flex flex-row-reverse items-start justify-between">
         <div className="text-right text-neutral-700">
-          <Heading type="h3">{companyName}</Heading>
-          <DateRange startDate={jobStart} endDate={jobEnd} />
+          <h4 className="font-medium">{jobTitle}</h4>
+          <div className="invisible">
+            <DateRange startDate={jobStart} endDate={jobEnd} />
+          </div>
         </div>
-        <h4 className="font-medium">{jobTitle}</h4>
+        <Heading type="h3">{companyName}</Heading>
       </div>
       <p className="mt-2 text-sm leading-6">{jobDescription}</p>
     </li>

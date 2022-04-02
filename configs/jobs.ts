@@ -4,7 +4,7 @@ const jobs = [
     jobDescription:
       "Reverse-engineering client & network fingerprinting to build out bank connectors.",
     jobStart: new Date(2021, 11),
-    jobTitle: "💰 Financial API Developer",
+    jobTitle: "Financial API Developer 💰",
   },
   {
     companyName: "Jumbleberry",
@@ -12,7 +12,7 @@ const jobs = [
       "Building the user-interfaces, & fullstack features of their advertising platform.",
     jobStart: new Date(2021, 6),
     jobEnd: new Date(2021, 11),
-    jobTitle: "🌐 Intermediate Frontend Developer",
+    jobTitle: "Intermediate Frontend Developer 🌐",
   },
   {
     companyName: "Cion Studio",
@@ -20,14 +20,14 @@ const jobs = [
       "Developing pixel-perfect user interfaces, and architecting backend systems.",
     jobStart: new Date(2021, 5),
     jobEnd: new Date(2022, 1),
-    jobTitle: "👨‍💻 Fullstack Software Developer",
+    jobTitle: "Fullstack Software Developer 👨‍💻",
   },
   {
     companyName: "Code Ninjas",
     jobDescription: "Teaching & inspiring the next generation of coders.",
     jobStart: new Date(2020, 7),
     jobEnd: new Date(2021, 6),
-    jobTitle: "🧑‍🏫 Lead Coding Instructor",
+    jobTitle: "Lead Coding Instructor 🧑‍🏫",
   },
 ];
 
