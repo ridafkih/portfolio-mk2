@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import Section from "@/components/Section";
-
-import projects from "@/configs/projects";
 import Project from "@/components/Project";
 
+import GitHubData from "@/@types/GitHubData";
+
 const Projects: React.VFC = () => {
+  const [gitHubData, setGitHubData] = useState<GitHubData[]>([]);
+
+  useEffect(() => {
+    axios
+      .get<GitHubData[]>("/api/projects")
+      .then(({ data }) => setGitHubData(data));
+  }, []);
+
   return (
     <Section title="My Projects ⌨️">
-      {projects.map((props) => {
-        return <Project key={props.name} {...props} />;
-      })}
+      <div className="grid grid-cols-1 gap-8">
+        {gitHubData.map((props) => {
+          return <Project key={props.name} {...props} />;
+        })}
+      </div>
     </Section>
   );
 };
