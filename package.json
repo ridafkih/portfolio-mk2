@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.1.0",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0"
