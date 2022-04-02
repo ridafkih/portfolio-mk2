@@ -5,6 +5,9 @@ import PageContainer from "@/components/PageContainer";
 import MyOpportunities from "@/sections/MyOpportunities";
 import AboutMyself from "@/sections/AboutMyself";
 import Intro from "@/sections/Intro";
+import Blog from "@/sections/Blog";
+import Projects from "@/sections/Projects";
+import Footer from "@/sections/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +16,9 @@ const Home: NextPage = () => {
         <Intro />
         <AboutMyself />
         <MyOpportunities />
+        <Blog />
+        <Projects />
+        <Footer />
       </PageContainer>
     </div>
   );

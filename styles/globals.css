@@ -17,7 +17,7 @@
   }
 
   body {
-    @apply text-neutral-900 bg-neutral-100;
+    @apply text-neutral-900 bg-neutral-50;
   }
 
   a {

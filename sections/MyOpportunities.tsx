@@ -6,8 +6,8 @@ import Section from "@/components/Section";
 import jobs from "@/configs/jobs";
 
 const MyOpportunities: React.VFC = () => (
-  <Section title="My Opportunities">
-    <ul className="grid">
+  <Section title="My Opportunities 💼">
+    <ul className="space-y-8">
       {jobs.map((props) => {
         const { companyName, jobTitle, jobStart } = props;
         const key = `${companyName}:${jobTitle}:${jobStart.getTime()}`;
