@@ -1,7 +1,7 @@
 import React from "react";
 
 const PageContainer: React.FC = ({ children }) => (
-  <main className="px-24 py-12 space-y-12">{children}</main>
+  <main className="px-8 py-12 space-y-24 sm:px-24">{children}</main>
 );
 
 export default PageContainer;
