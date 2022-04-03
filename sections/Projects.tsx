@@ -11,8 +11,8 @@ interface ProjectsProps {
 
 const Projects: React.VFC<ProjectsProps> = ({ gitHubData }) => {
   return (
-    <Section title="My Projects ⌨️">
-      <div className="grid grid-cols-1 gap-8">
+    <Section title="My Little Projects ⌨️">
+      <div className="grid grid-cols-2 gap-8">
         {gitHubData.map((props) => {
           return <Project key={props.name} {...props} />;
         })}
