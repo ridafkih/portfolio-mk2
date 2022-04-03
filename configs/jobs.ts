@@ -29,6 +29,13 @@ const jobs = [
     jobEnd: new Date(2021, 6),
     jobTitle: "Lead Coding Instructor 🧑‍🏫",
   },
+  {
+    companyName: "Calgary Public Library",
+    jobDescription: "Developing curriculum & teaching prospective developers.",
+    jobStart: new Date(2019, 10),
+    jobEnd: new Date(2020, 0),
+    jobTitle: "Volunteer Coding Instructor",
+  },
 ];
 
 export default jobs;
