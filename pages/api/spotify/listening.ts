@@ -1,7 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 import SpotifyListeningData from "@/@types/SpotifyListeningData";
-import { getSpotifyListeningData, spotifyApi } from "@/utils/spotify";
+import {
+  getSpotifyListeningData,
+  refreshSpotifyAccessToken,
+  spotifyApi,
+} from "@/utils/spotify";
 
 import { createClient } from "@supabase/supabase-js";
 const databaseClient = createClient(
@@ -10,6 +14,7 @@ const databaseClient = createClient(
 );
 
 interface SpotifyKeysDatabaseProps {
+  refresh_token?: string;
   access_token?: string;
   code?: string;
   expires_in?: number;
@@ -25,20 +30,30 @@ const handler = async (
 ) => {
   const { body } = await databaseClient
     .from<SpotifyKeysDatabaseProps>("spotify-keys")
-    .select("access_token,code,expires_in,created_at")
+    .select("refresh_token,access_token,code,expires_in,created_at")
     .limit(1);
 
   const [firstSpotifyKey] = body || [];
-  const { access_token, code, expires_in, created_at } = firstSpotifyKey || {};
+  let spotifyKey = firstSpotifyKey || {};
 
-  if (!access_token || !expires_in || !created_at || !code)
+  if (
+    !spotifyKey.refresh_token ||
+    !spotifyKey.access_token ||
+    !spotifyKey.expires_in ||
+    !spotifyKey.created_at ||
+    !spotifyKey.code
+  )
     return response.json({ isPlaying: false });
 
-  if (isTokenExpired(expires_in, created_at)) console.log("token is expired");
-  if (!access_token || !code) return response.json({ isPlaying: false });
+  if (isTokenExpired(spotifyKey.expires_in, spotifyKey.created_at)) {
+    spotifyKey = await refreshSpotifyAccessToken(spotifyKey.refresh_token);
+  }
+
+  if (!spotifyKey.access_token || !spotifyKey.code)
+    return response.json({ isPlaying: false });
 
   const spotifyListeningData = await getSpotifyListeningData(
-    access_token
+    spotifyKey.access_token
   ).catch((error) => {
     console.error(error);
     return { isPlaying: false };

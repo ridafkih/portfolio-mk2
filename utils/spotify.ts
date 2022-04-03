@@ -36,7 +36,9 @@ export const getSpotifyListeningData = async (
   const { body: data } = await spotifyApi.getMyCurrentPlayingTrack({});
 
   const { item } = data as unknown as SpotifyItem;
-  const { name } = item;
+  const { name } = item || {};
+
+  if (!name) return { isPlaying: false };
 
   const { body: album } = await spotifyApi.getAlbum(item?.album.id);
 
@@ -58,5 +60,12 @@ export const getSpotifyListeningData = async (
   };
 };
 
-export const refreshSpotifyAccessToken = async (code: string) =>
-  spotifyApi.authorizationCodeGrant(code).then(({ body }) => body);
+/**
+ * Refreshes the access token.
+ * @param refreshToken The refresh token.
+ * @returns The spotify access token data.
+ */
+export const refreshSpotifyAccessToken = async (refreshToken: string) => {
+  spotifyApi.setRefreshToken(refreshToken);
+  return spotifyApi.refreshAccessToken().then(({ body }) => body);
+};

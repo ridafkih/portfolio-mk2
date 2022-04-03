@@ -13,7 +13,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
     code as string
   );
 
-  const { access_token, expires_in } = auth;
+  const { access_token, expires_in, refresh_token } = auth;
 
   spotifyApi.setAccessToken(access_token);
   const me = await spotifyApi.getMe().catch(() => void 0);
@@ -22,6 +22,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
     return response.redirect("/");
   else
     await databaseClient.from("spotify-keys").insert({
+      refresh_token,
       access_token,
       code,
       expires_in,
