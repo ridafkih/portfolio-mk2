@@ -12,7 +12,7 @@ interface ProjectProps {
 }
 
 const Project: React.VFC<ProjectProps> = ({ name, stars, description }) => (
-  <div className="space-y-2">
+  <li className="space-y-2">
     <div className="flex items-center gap-2">
       <Heading type="h4">{name}</Heading>
       {stars && (
@@ -23,7 +23,7 @@ const Project: React.VFC<ProjectProps> = ({ name, stars, description }) => (
       )}
     </div>
     <Paragraph>{description}</Paragraph>
-  </div>
+  </li>
 );
 
 export default Project;
