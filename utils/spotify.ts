@@ -43,7 +43,7 @@ export const getSpotifyListeningData = async (
     name,
     image,
     link,
-    artists: artists.map(({ name }: { name: string }) => name).join(","),
+    artists: artists.map(({ name }: { name: string }) => name).join(", "),
     isPlaying,
   };
 };
