@@ -23,8 +23,8 @@ const Home: NextPage<HomeProps> = ({ gitHubData }) => {
   return (
     <div className="w-full max-w-[52rem] mx-auto">
       <Handlebars email="hello@rida.dev" />
+      <Header />
       <PageContainer>
-        <Header />
         <Intro />
         <AboutMyself />
         <MyOpportunities />

@@ -4,7 +4,7 @@ import CurrentlyPlaying from "@/components/CurrentlyPlaying";
 
 const Header: React.VFC = () => {
   return (
-    <header className="flex justify-end">
+    <header className="flex justify-end px-32 py-12">
       <CurrentlyPlaying />
     </header>
   );
