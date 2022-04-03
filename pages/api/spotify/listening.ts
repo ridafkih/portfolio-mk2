@@ -4,7 +4,6 @@ import SpotifyListeningData from "@/@types/SpotifyListeningData";
 import {
   getSpotifyListeningData,
   refreshSpotifyAccessToken,
-  spotifyApi,
 } from "@/utils/spotify";
 
 import { createClient } from "@supabase/supabase-js";
@@ -14,6 +13,7 @@ const databaseClient = createClient(
 );
 
 interface SpotifyKeysDatabaseProps {
+  id?: number;
   refresh_token?: string;
   access_token?: string;
   code?: string;
@@ -31,6 +31,7 @@ const handler = async (
   const { body } = await databaseClient
     .from<SpotifyKeysDatabaseProps>("spotify-keys")
     .select("refresh_token,access_token,code,expires_in,created_at")
+    .order("id", { ascending: false })
     .limit(1);
 
   const [firstSpotifyKey] = body || [];
