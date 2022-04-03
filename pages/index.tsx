@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 
+import Handlebars from "@/components/Handlebars";
 import PageContainer from "@/components/PageContainer";
 import Header from "@/components/Header";
 
@@ -21,6 +22,7 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ gitHubData }) => {
   return (
     <div className="w-full max-w-[52rem] mx-auto">
+      <Handlebars email="hello@rida.dev" />
       <PageContainer>
         <Header />
         <Intro />
