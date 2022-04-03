@@ -7,9 +7,11 @@ import blogs from "@/configs/blogs";
 const Blog: React.VFC = () => {
   return (
     <Section title="Blog Posts 📝">
-      {blogs.map((props) => {
-        return <BlogPost key={props.title} {...props} />;
-      })}
+      <div className="space-y-6">
+        {blogs.map((props) => {
+          return <BlogPost key={props.title} {...props} />;
+        })}
+      </div>
     </Section>
   );
 };
