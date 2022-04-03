@@ -38,8 +38,6 @@ export const getSpotifyListeningData = async (
   const { item } = data as unknown as SpotifyItem;
   const { name } = item;
 
-  console.log(item);
-
   const { body: album } = await spotifyApi.getAlbum(item?.album.id);
 
   const { is_playing: isPlaying } = data;
