@@ -7,7 +7,7 @@ import { technologies } from "@/configs/technologies";
 
 const Technologies: React.VFC = () => {
   return (
-    <Section title="My Favorite Technologies 💻">
+    <Section title="My Favourite Technologies 💻">
       <ul className="grid w-full grid-flow-col grid-rows-[repeat(13,minmax(0,1fr))] sm:grid-rows-[repeat(9,minmax(0,1fr))] gap-2 md:grid-rows-5">
         {technologies.map((props) => {
           return <Technology key={props.name} {...props} />;
