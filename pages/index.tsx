@@ -14,6 +14,7 @@ import ContactMe from "@/sections/ContactMe";
 import { getProjectsFromGitHub } from "@/utils/projects";
 
 import GitHubData from "@/@types/GitHubData";
+import Head from "next/head";
 
 interface HomeProps {
   gitHubData: GitHubData[];
@@ -21,18 +22,23 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ gitHubData }) => {
   return (
-    <div className="w-full max-w-[52rem] mx-auto">
-      <Handlebars email="hello@rida.dev" />
-      <Header />
-      <PageContainer>
-        <Intro />
-        <AboutMyself />
-        <MyOpportunities />
-        <Blog />
-        <Projects gitHubData={gitHubData} />
-        <ContactMe />
-      </PageContainer>
-    </div>
+    <>
+      <Head>
+        <title>Rida F&apos;kih — Software Developer Portfolio</title>
+      </Head>
+      <div className="w-full max-w-[52rem] mx-auto">
+        <Handlebars email="hello@rida.dev" />
+        <Header />
+        <PageContainer>
+          <Intro />
+          <AboutMyself />
+          <MyOpportunities />
+          <Blog />
+          <Projects gitHubData={gitHubData} />
+          <ContactMe />
+        </PageContainer>
+      </div>
+    </>
   );
 };
 
