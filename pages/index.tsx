@@ -9,7 +9,15 @@ import Blog from "@/sections/Blog";
 import Projects from "@/sections/Projects";
 import Footer from "@/sections/Footer";
 
-const Home: NextPage = () => {
+import { getProjectsFromGitHub } from "@/utils/projects";
+
+import GitHubData from "@/@types/GitHubData";
+
+interface HomeProps {
+  gitHubData: GitHubData[];
+}
+
+const Home: NextPage<HomeProps> = ({ gitHubData }) => {
   return (
     <div className="w-full max-w-[52rem] mx-auto">
       <PageContainer>
@@ -17,11 +25,20 @@ const Home: NextPage = () => {
         <AboutMyself />
         <MyOpportunities />
         <Blog />
-        <Projects />
+        <Projects gitHubData={gitHubData} />
         <Footer />
       </PageContainer>
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const gitHubData = await getProjectsFromGitHub("ridafkih");
+
+  return {
+    props: { gitHubData },
+    revalidate: 60 * 30,
+  };
+}
 
 export default Home;
