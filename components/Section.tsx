@@ -9,7 +9,7 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ title, label, children }) => {
   return (
-    <section role="contentinfo" aria-label={label || title}>
+    <section aria-label={label || title}>
       {title && <Heading type="h2">{title}</Heading>}
       <div className="space-y-4">{children}</div>
     </section>
