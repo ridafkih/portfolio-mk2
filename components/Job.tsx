@@ -20,10 +20,10 @@ const Job: React.VFC<JobProps> = ({
 }) => {
   return (
     <li className="relative pt-8 border-t rounded-sm first:pt-0 first:border-none border-t-neutral-300">
-      <div className="flex flex-row-reverse items-start justify-between">
-        <div className="text-right text-neutral-700">
+      <div className="flex flex-col-reverse items-start justify-between sm:flex-row-reverse">
+        <div className="sm:text-right text-neutral-700">
           <h4 className="font-medium">{jobTitle}</h4>
-          <div className="invisible">
+          <div className="hidden">
             <DateRange startDate={jobStart} endDate={jobEnd} />
           </div>
         </div>
