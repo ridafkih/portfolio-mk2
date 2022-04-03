@@ -17,7 +17,7 @@ const DynamicGradient: React.VFC = () => {
   const colors = ["#2DDAFC", "#FCB72D", "#F52DFC", "#FC2D68"];
 
   return (
-    <div className="absolute inset-0 flex flex-wrap m-auto pointer-events-none -z-10 blur-[10rem] opacity-60 scale-75">
+    <div className="absolute inset-0 flex flex-wrap m-auto pointer-events-none -z-10 blur-[10rem] opacity-60 dark:opacity-30 scale-75">
       {colors.map((color) => {
         return <Circle color={color} key={color} />;
       })}
