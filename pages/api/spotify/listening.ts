@@ -31,7 +31,6 @@ const handler = async (
   const [firstSpotifyKey] = body || [];
   const { access_token, code, expires_in, created_at } = firstSpotifyKey || {};
 
-  console.log({ access_token, code, expires_in, created_at });
   if (!access_token || !expires_in || !created_at || !code)
     return response.json({ isPlaying: false });
 
