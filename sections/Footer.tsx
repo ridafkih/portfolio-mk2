@@ -7,7 +7,7 @@ import DynamicGradient from "@/components/DynamicGradient";
 const Footer: React.VFC = () => {
   return (
     <Section>
-      <footer className="relative h-[75vh] flex flex-col items-center justify-center text-center">
+      <div className="relative h-[75vh] flex flex-col items-center justify-center text-center">
         <DynamicGradient />
         <h2 className="py-8 text-5xl">Have a challenge for me?</h2>
         <p className="max-w-[48ch]">
@@ -17,7 +17,7 @@ const Footer: React.VFC = () => {
           <Link href="">Get in touch</Link> and I&apos;d love to hear about
           yours.
         </p>
-      </footer>
+      </div>
     </Section>
   );
 };
