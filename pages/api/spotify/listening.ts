@@ -10,10 +10,10 @@ const databaseClient = createClient(
 );
 
 interface SpotifyKeysDatabaseProps {
-  access_token: string;
-  code: string;
-  expires_in: number;
-  created_at: Date;
+  access_token?: string;
+  code?: string;
+  expires_in?: number;
+  created_at?: Date;
 }
 
 const isTokenExpired = (expires_in: number, created_at: Date) =>
@@ -28,9 +28,14 @@ const handler = async (
     .select("access_token,code,expires_in,created_at")
     .limit(1);
 
-  const [{ access_token, code, expires_in, created_at }] = body || [];
+  const [firstSpotifyKey] = body || [];
+  const { access_token, code, expires_in, created_at } = firstSpotifyKey || {};
 
-  if (isTokenExpired(expires_in, created_at)) void 0;
+  console.log({ access_token, code, expires_in, created_at });
+  if (!access_token || !expires_in || !created_at || !code)
+    return response.json({ isPlaying: false });
+
+  if (isTokenExpired(expires_in, created_at)) console.log("token is expired");
   if (!access_token || !code) return response.json({ isPlaying: false });
 
   const spotifyListeningData = await getSpotifyListeningData(
