@@ -9,7 +9,7 @@ import AboutMyself from "@/sections/AboutMyself";
 import Intro from "@/sections/Intro";
 import Blog from "@/sections/Blog";
 import Projects from "@/sections/Projects";
-import Footer from "@/sections/Footer";
+import ContactMe from "@/sections/ContactMe";
 
 import { getProjectsFromGitHub } from "@/utils/projects";
 
@@ -30,7 +30,7 @@ const Home: NextPage<HomeProps> = ({ gitHubData }) => {
         <MyOpportunities />
         <Blog />
         <Projects gitHubData={gitHubData} />
-        <Footer />
+        <ContactMe />
       </PageContainer>
     </div>
   );

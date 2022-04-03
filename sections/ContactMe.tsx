@@ -4,7 +4,7 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import DynamicGradient from "@/components/DynamicGradient";
 
-const Footer: React.VFC = () => {
+const ContactMe: React.VFC = () => {
   return (
     <Section>
       <div className="relative h-[75vh] flex flex-col items-center justify-center text-center">
@@ -22,4 +22,4 @@ const Footer: React.VFC = () => {
   );
 };
 
-export default Footer;
+export default ContactMe;
