@@ -14,7 +14,7 @@ const USER_AGENT =
  */
 const filterEmojis = (text?: string) => {
   if (!text) return text;
-  return text.replace(/[^A-z0-9\.,:-\s]/g, "");
+  return text.replace(/[^A-z0-9\.,:-\s\/]/g, "");
 };
 
 /**
