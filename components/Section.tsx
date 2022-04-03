@@ -8,7 +8,7 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ title, children }) => {
   return (
-    <section className="space-y-4">
+    <section role="contentinfo" aria-label={title} className="space-y-4">
       {title && (
         <div className="pb-4">
           <Heading type="h2">{title}</Heading>
