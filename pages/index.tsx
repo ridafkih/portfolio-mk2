@@ -15,6 +15,7 @@ import { getProjectsFromGitHub } from "@/utils/projects";
 
 import GitHubData from "@/@types/GitHubData";
 import Head from "next/head";
+import Technologies from "@/sections/Technologies";
 
 interface HomeProps {
   gitHubData: GitHubData[];
@@ -35,6 +36,7 @@ const Home: NextPage<HomeProps> = ({ gitHubData }) => {
           <MyOpportunities />
           <Blog />
           <Projects gitHubData={gitHubData} />
+          <Technologies />
           <ContactMe />
         </PageContainer>
       </div>
