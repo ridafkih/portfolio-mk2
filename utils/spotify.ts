@@ -25,7 +25,8 @@ export const getSpotifyListeningData = (
       const { item, is_playing } = data;
 
       const { name, album } = item;
-      const { artists, images, href: link } = album;
+      const { artists, images, external_urls } = album;
+      const { spotify: link } = external_urls;
       const [image] = images;
 
       return {
