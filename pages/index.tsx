@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 
 import PageContainer from "@/components/PageContainer";
+import Header from "@/components/Header";
 
 import MyOpportunities from "@/sections/MyOpportunities";
 import AboutMyself from "@/sections/AboutMyself";
@@ -21,6 +22,7 @@ const Home: NextPage<HomeProps> = ({ gitHubData }) => {
   return (
     <div className="w-full max-w-[52rem] mx-auto">
       <PageContainer>
+        <Header />
         <Intro />
         <AboutMyself />
         <MyOpportunities />
