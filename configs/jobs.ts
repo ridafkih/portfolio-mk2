@@ -34,7 +34,7 @@ const jobs = [
     jobDescription: "Developing curriculum & teaching prospective developers.",
     jobStart: new Date(2019, 10),
     jobEnd: new Date(2020, 0),
-    jobTitle: "Volunteer Coding Instructor",
+    jobTitle: "Volunteer Coding Instructor ✋",
   },
 ];
 
