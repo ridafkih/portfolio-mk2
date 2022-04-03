@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 
 import Heading from "@/components/Heading";
+import Link from "next/link";
 
 interface BlogPostProps {
   title: string;
@@ -17,20 +18,22 @@ const BlogPost: React.VFC<BlogPostProps> = ({ title, description, date }) => {
   };
 
   return (
-    <div className="relative transition-transform hover:-translate-y-1">
-      <div className="flex items-center p-6 -mx-6 border rounded-md border-neutral-300 dark:border-neutral-700">
-        <div className="space-y-2">
-          <Heading type="h3">{title}</Heading>
-          <p className="text-sm leading-7 opacity-80">{description}</p>
+    <Link href="" passHref>
+      <a className="relative block font-light transition-transform after:bg-transparent hover:-translate-y-1">
+        <div className="flex items-center p-6 -mx-6 border rounded-md border-neutral-300 dark:border-neutral-700">
+          <div className="space-y-2">
+            <Heading type="h3">{title}</Heading>
+            <p className="text-sm leading-7 opacity-80">{description}</p>
+          </div>
         </div>
-      </div>
-      <time
-        className="absolute bottom-0 right-0 px-4 py-2 text-xs transform translate-y-[1rem] bg-neutral-900"
-        dateTime={`P${getDaysBetweenDates()}D`}
-      >
-        {getDaysBetweenDates()} days ago.
-      </time>
-    </div>
+        <time
+          className="absolute bottom-0 right-0 px-4 py-2 text-xs transform translate-y-[1rem] bg-neutral-900"
+          dateTime={`P${getDaysBetweenDates()}D`}
+        >
+          {getDaysBetweenDates()} days ago.
+        </time>{" "}
+      </a>
+    </Link>
   );
 };
 
