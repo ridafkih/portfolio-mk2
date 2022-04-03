@@ -4,11 +4,16 @@ import Heading from "@/components/Heading";
 
 interface SectionProps {
   title?: string;
+  label?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ title, children }) => {
+const Section: React.FC<SectionProps> = ({ title, label, children }) => {
   return (
-    <section role="contentinfo" aria-label={title} className="space-y-4">
+    <section
+      role="contentinfo"
+      aria-label={label || title}
+      className="space-y-4"
+    >
       {title && (
         <div className="pb-4">
           <Heading type="h2">{title}</Heading>

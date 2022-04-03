@@ -6,7 +6,7 @@ import DynamicGradient from "@/components/DynamicGradient";
 
 const ContactMe: React.VFC = () => {
   return (
-    <Section>
+    <Section label="Have a challenge for me?">
       <div className="relative h-[75vh] flex flex-col items-center justify-center text-center">
         <DynamicGradient />
         <h2 className="py-8 text-5xl">Have a challenge for me?</h2>
