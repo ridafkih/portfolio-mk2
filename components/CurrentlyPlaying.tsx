@@ -28,7 +28,7 @@ const CurrentlyPlaying = () => {
   return (
     <div
       className={`flex items-center gap-2 ${
-        spotifyData.isPlaying ? "animate-pulse" : ""
+        spotifyData.isPlaying ? "animate-pulse" : "opacity-75"
       }`}
     >
       {!spotifyData.isPlaying ? (
