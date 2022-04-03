@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,9 +35,11 @@ const CurrentlyPlaying = () => {
       {!spotifyData.isPlaying ? (
         <span className="opacity-75">Not Listening...</span>
       ) : (
-        <span>
-          {spotifyData.name} by {spotifyData.artists}
-        </span>
+        <Link href={spotifyData.link!} passHref>
+          <span className="cursor-alias">
+            {spotifyData.name} by {spotifyData.artists}
+          </span>
+        </Link>
       )}
       <FontAwesomeIcon size="lg" icon={faSpotify} />
     </div>
