@@ -17,7 +17,7 @@ const jobs = [
   {
     companyName: "Cion Studio",
     jobDescription:
-      "Developing pixel-perfect user interfaces, and architecting backend systems.",
+      "Developing pixel-perfect user interfaces, and architecting fullstack systems.",
     jobStart: new Date(2021, 5),
     jobEnd: new Date(2022, 1),
     jobTitle: "Fullstack Software Developer 👨‍💻",
