@@ -23,7 +23,7 @@ const AboutMyself = () => (
       love for what I do.
     </Paragraph>
     <Paragraph>
-      Over the past 6 years, I&apos;ve learned a lot, and I&apos;ve found myself
+      Over the past 6 years I&apos;ve learned a lot, and I&apos;ve found myself
       in two amazing opportunities to share my passion with the next generation
       of developers by teaching kids to code—and while I&apos;ve moved on from
       those experiences—I still continue to gain &amp; share knowledge within
