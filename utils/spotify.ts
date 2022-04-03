@@ -1,40 +1,52 @@
-import axios from "axios";
-
 import SpotifyListeningData from "@/@types/SpotifyListeningData";
 
-const CURRENTLY_LISTENING_URL =
-  "https://api.spotify.com/v1/me/player/currently-playing";
+import SpotifyWebApi from "spotify-web-api-node";
+
+export const spotifyApi = new SpotifyWebApi({
+  clientId: process.env.SPOTIFY_CLIENT_ID,
+  clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+  redirectUri: process.env.SPOTIFY_REDIRECT_URL,
+});
+
+export const scopes = [
+  "user-read-private",
+  "user-read-email",
+  "user-read-currently-playing",
+  "user-read-playback-state",
+];
 
 /**
- * Gets the Spotify listening data for the user with the provided OAuth token.
- * @returns A promise that resolves the listening data.
+ * Gets the Spotify listening data for the user with the provided OAuth
+ * token set as the SPOTIFY_OAUTH_TOKEN variable
+ * @returns
  */
-export const getSpotifyListeningData = (
-  oAuthToken: string
-): Promise<SpotifyListeningData> =>
-  axios
-    .get(CURRENTLY_LISTENING_URL, {
-      params: {
-        market: "CA",
-      },
-      headers: {
-        Authorization: `Bearer ${oAuthToken}`,
-      },
-    })
-    .then(({ data }) => {
-      const { item, is_playing } = data;
+export const getSpotifyListeningData = async (
+  accessToken: string
+): Promise<SpotifyListeningData> => {
+  spotifyApi.setAccessToken(accessToken);
+  const { body: data } = await spotifyApi.getMyCurrentPlayingTrack({});
 
-      const { name, album } = item;
-      const { artists, images, external_urls } = album;
-      const { spotify: link } = external_urls;
-      const [image] = images;
+  const { item } = data as unknown as { item: { album: { id: string } } };
+  const { body: album } = await spotifyApi.getAlbum(item?.album.id);
 
-      return {
-        name,
-        image,
-        link,
-        artists: artists.map(({ name }: { name: string }) => name).join(", "),
-        isPlaying: is_playing,
-      };
-    })
-    .catch(() => ({ isPlaying: false }));
+  const { is_playing: isPlaying } = data;
+  const {
+    name,
+    artists,
+    external_urls: { spotify: link },
+    images,
+  } = album;
+
+  const [image] = images;
+
+  return {
+    name,
+    image,
+    link,
+    artists: artists.map(({ name }: { name: string }) => name).join(","),
+    isPlaying,
+  };
+};
+
+export const refreshSpotifyAccessToken = async (code: string) =>
+  spotifyApi.authorizationCodeGrant(code).then(({ body }) => body);

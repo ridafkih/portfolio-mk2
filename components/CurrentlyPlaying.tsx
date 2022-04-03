@@ -15,7 +15,7 @@ const CurrentlyPlaying = () => {
 
   const fetchSpotifyData = () =>
     axios
-      .get<SpotifyListeningData>("/api/spotify")
+      .get<SpotifyListeningData>("/api/spotify/listening")
       .catch(() => void 0)
       .then((response) => {
         if (response) setSpotifyData(response.data);
@@ -42,13 +42,15 @@ const CurrentlyPlaying = () => {
             target="spotify:link_out"
           >
             <div className="flex items-center gap-2">
-              <Image
-                className="rounded"
-                width={18}
-                height={18}
-                src={spotifyData.image!.url}
-                alt={`${spotifyData.name} by ${spotifyData.artists} album cover.`}
-              />
+              {spotifyData.image?.url && (
+                <Image
+                  className="rounded"
+                  width={18}
+                  height={18}
+                  src={spotifyData.image.url}
+                  alt={`${spotifyData.name} by ${spotifyData.artists} album cover.`}
+                />
+              )}
               <span className="cursor-alias">
                 {spotifyData.name} by {spotifyData.artists}
               </span>
