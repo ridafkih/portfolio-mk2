@@ -1,6 +1,7 @@
 import React from "react";
 
 const paragraphWeights = {
+  light: "font-light",
   normal: "font-normal",
   medium: "font-medium",
   semibold: "font-semibold",

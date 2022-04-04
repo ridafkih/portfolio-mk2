@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
+import Link from "next/link";
 
 import Heading from "@/components/Heading";
-import Link from "next/link";
+import Paragraph from "@/components/Paragraph";
 
 interface BlogPostProps {
   title: string;
@@ -23,7 +24,7 @@ const BlogPost: React.VFC<BlogPostProps> = ({ title, description, date }) => {
         <div className="flex items-center p-6 border rounded-md sm:-mx-6 border-neutral-300 dark:border-neutral-700">
           <div className="space-y-2">
             <Heading type="h3">{title}</Heading>
-            <p className="text-sm leading-7 opacity-80">{description}</p>
+            <Paragraph weight="light">{description}</Paragraph>
           </div>
         </div>
         <time

@@ -22,7 +22,7 @@ const Project: React.VFC<ProjectProps> = ({ name, stars, description }) => (
         </div>
       )}
     </div>
-    <Paragraph>{description}</Paragraph>
+    <Paragraph weight="light">{description}</Paragraph>
   </li>
 );
 

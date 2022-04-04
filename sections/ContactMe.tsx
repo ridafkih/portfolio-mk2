@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import Section from "@/components/Section";
 import DynamicGradient from "@/components/DynamicGradient";
+import Paragraph from "@/components/Paragraph";
 
 const ContactMe: React.VFC = () => {
   return (
@@ -10,13 +11,13 @@ const ContactMe: React.VFC = () => {
       <div className="relative h-[75vh] flex flex-col items-center justify-center text-center">
         <DynamicGradient />
         <h2 className="py-8 text-5xl">Have a challenge for me?</h2>
-        <p className="max-w-[48ch]">
+        <Paragraph characterLimit={48}>
           I occasionally take on new opportunities.
-        </p>
-        <p className="max-w-[48ch]">
+        </Paragraph>
+        <Paragraph characterLimit={48}>
           <Link href="">Get in touch</Link> and I&apos;d love to hear about
           yours.
-        </p>
+        </Paragraph>
       </div>
     </Section>
   );
