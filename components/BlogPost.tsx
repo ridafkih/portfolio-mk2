@@ -28,7 +28,7 @@ const BlogPost: React.VFC<BlogPostProps> = ({ title, description, date }) => {
           </div>
         </div>
         <time
-          className="absolute bottom-0 right-0 px-4 py-2 text-xs transform translate-y-[1rem] bg-neutral-50 dark:bg-neutral-900"
+          className="text-right absolute bottom-0 right-0 px-4 py-2 text-xs transform translate-y-[1rem] bg-neutral-50 dark:bg-neutral-900"
           dateTime={`P${getDaysBetweenDates()}D`}
         >
           {getDaysBetweenDates()} days ago.
