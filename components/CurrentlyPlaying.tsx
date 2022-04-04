@@ -34,7 +34,9 @@ const CurrentlyPlaying = () => {
       }`}
     >
       {!spotifyData.isPlaying ? (
-        <span className="opacity-75">Not Listening...</span>
+        <span className="text-right opacity-75 whitespace-nowrap">
+          Not Listening...
+        </span>
       ) : (
         <Link href={spotifyData.link!} passHref replace={false}>
           <a
@@ -51,7 +53,7 @@ const CurrentlyPlaying = () => {
                   alt={`${spotifyData.name} by ${spotifyData.artists} album cover.`}
                 />
               )}
-              <span className="cursor-alias">
+              <span className="text-right cursor-alias">
                 {spotifyData.name} by {spotifyData.artists}
               </span>
             </div>
