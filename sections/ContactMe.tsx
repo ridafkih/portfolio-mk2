@@ -15,8 +15,8 @@ const ContactMe: React.VFC = () => {
           I occasionally take on new opportunities.
         </Paragraph>
         <Paragraph characterLimit={48}>
-          <Link href="">Get in touch</Link> and I&apos;d love to hear about
-          yours.
+          <Link href="/contact">Get in touch</Link> and I&apos;d love to hear
+          about yours.
         </Paragraph>
       </div>
     </Section>

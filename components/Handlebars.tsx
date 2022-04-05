@@ -15,12 +15,13 @@ interface HandlebarsProps {
 
 interface HandlebarLinkProps {
   icon: IconDefinition;
+  link: string;
 }
 
-const HandlebarLink: React.VFC<HandlebarLinkProps> = ({ icon }) => (
+const HandlebarLink: React.VFC<HandlebarLinkProps> = ({ icon, link }) => (
   <li className="after:last:hidden after:block after:mx-auto after:my-4 after:w-[1px] after:scale-x-75 after:h-12 after:dark:bg-neutral-50 after:bg-neutral-900">
-    <Link href="/" passHref>
-      <a className="after:bg-transparent">
+    <Link href={link} passHref>
+      <a className="after:bg-transparent" target="social">
         <FontAwesomeIcon icon={icon} />
       </a>
     </Link>
@@ -39,9 +40,15 @@ const Handlebars: React.VFC<HandlebarsProps> = ({ email }) => {
       </div>
       <div className="fixed left-0 grid place-items-center h-screen my-auto w-[6rem]">
         <ul>
-          <HandlebarLink icon={faGithubAlt} />
-          <HandlebarLink icon={faInstagram} />
-          <HandlebarLink icon={faTwitter} />
+          <HandlebarLink
+            icon={faGithubAlt}
+            link="https://github.com/ridafkih"
+          />
+          <HandlebarLink
+            icon={faInstagram}
+            link="https://instagram.com/ridafkih"
+          />
+          <HandlebarLink icon={faTwitter} link="https://twitter.com/ridafkih" />
         </ul>
       </div>
     </div>

@@ -12,10 +12,12 @@ const AboutMyself = () => (
     </Paragraph>
     <Paragraph weight="light">
       As a teenager I began coding in order to cheat on mobile trivia games like{" "}
-      <Link href="">HQ Trivia</Link>, which rewarded money for correctly
-      answering trivia questions. Once my passion for development surpassed my
-      passion for making mystical internet money: I moved on, and I&apos;ve been
-      coding non-stop since.
+      <Link href="https://en.wikipedia.org/wiki/HQ_(video_game)">
+        HQ Trivia
+      </Link>
+      , which rewarded money for correctly answering trivia questions. Once my
+      passion for development surpassed my passion for making mystical internet
+      money: I moved on, and I&apos;ve been coding non-stop since.
     </Paragraph>
     <Paragraph weight="light">
       I <i>love</i> problem solving. I am excited &amp; driven by challenging

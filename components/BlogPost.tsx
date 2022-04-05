@@ -19,7 +19,7 @@ const BlogPost: React.VFC<BlogPostProps> = ({ title, description, date }) => {
   };
 
   return (
-    <Link href="" passHref>
+    <Link href="/blog" passHref>
       <a className="relative block font-light transition-transform after:bg-transparent hover:-translate-y-1">
         <div className="flex items-center p-6 border rounded-md sm:-mx-6 border-neutral-300 dark:border-neutral-700">
           <div className="space-y-2">
