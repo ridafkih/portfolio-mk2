@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -23,7 +23,7 @@ const Navigation: React.VFC<NavigationProps> = ({ items }) => {
     <nav>
       <ul className="flex gap-4">
         {items.map(({ name, path }) => {
-          const isOnPage = (router.asPath || "/") === path;
+          const isOnPage = router.pathname === path;
           const weightClass = isOnPage
             ? "font-normal opacity-100"
             : "font-thin opacity-80";
