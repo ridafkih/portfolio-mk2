@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 
 import Handlebars from "@/components/Handlebars";
 import PageContainer from "@/components/PageContainer";
@@ -10,12 +11,12 @@ import Intro from "@/sections/Intro";
 import Blog from "@/sections/Blog";
 import Projects from "@/sections/Projects";
 import ContactMe from "@/sections/ContactMe";
+import Technologies from "@/sections/Technologies";
+import BigProjects from "@/sections/BigProjects";
 
 import { getProjectsFromGitHub } from "@/utils/projects";
 
 import GitHubData from "@/@types/GitHubData";
-import Head from "next/head";
-import Technologies from "@/sections/Technologies";
 
 interface HomeProps {
   gitHubData: GitHubData[];
@@ -36,6 +37,7 @@ const Home: NextPage<HomeProps> = ({ gitHubData }) => {
           <MyOpportunities />
           <Blog />
           <Projects gitHubData={gitHubData} />
+          <BigProjects />
           <Technologies />
           <ContactMe />
         </PageContainer>
