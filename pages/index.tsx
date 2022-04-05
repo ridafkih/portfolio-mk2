@@ -22,7 +22,7 @@ interface HomeProps {
   gitHubData: GitHubData[];
 }
 
-const Home: NextPage<HomeProps> = ({ gitHubData }) => {
+const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
   return (
     <>
       <Head>
@@ -55,4 +55,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Home;
+export default HomePage;
