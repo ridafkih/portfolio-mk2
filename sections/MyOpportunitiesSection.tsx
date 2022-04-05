@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 
 import jobs from "@/configs/jobs";
 
-const MyOpportunities: React.VFC = () => (
+const MyOpportunitiesSection: React.VFC = () => (
   <Section title="My Opportunities 💼">
     <ul className="space-y-8">
       {jobs.map((props) => {
@@ -17,4 +17,4 @@ const MyOpportunities: React.VFC = () => (
   </Section>
 );
 
-export default MyOpportunities;
+export default MyOpportunitiesSection;

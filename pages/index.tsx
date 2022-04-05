@@ -6,14 +6,14 @@ import PageContainer from "@/components/PageContainer";
 import Header from "@/components/Header";
 import WidthLimiter from "@/components/WidthLimiter";
 
-import MyOpportunities from "@/sections/MyOpportunities";
-import AboutMyself from "@/sections/AboutMyself";
-import Intro from "@/sections/Intro";
-import Blog from "@/sections/Blog";
-import Projects from "@/sections/Projects";
-import ContactMe from "@/sections/ContactMe";
-import Technologies from "@/sections/Technologies";
-import BigProjects from "@/sections/BigProjects";
+import MyOpportunitiesSection from "@/sections/MyOpportunitiesSection";
+import AboutMyselfSection from "@/sections/AboutMyselfSection";
+import IntroSection from "@/sections/IntroSection";
+import BlogPreviewSection from "@/sections/BlogPreviewSection";
+import ProjectsSection from "@/sections/ProjectsSection";
+import ContactMeSection from "@/sections/ContactMeSection";
+import TechnologiesSection from "@/sections/TechnologiesSection";
+import BigProjectsSection from "@/sections/BigProjectsSection";
 
 import { getProjectsFromGitHub } from "@/utils/projects";
 
@@ -33,14 +33,14 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
         <Handlebars email="hello@rida.dev" />
         <Header />
         <PageContainer>
-          <Intro />
-          <AboutMyself />
-          <MyOpportunities />
-          <Blog />
-          <Projects gitHubData={gitHubData} />
-          <BigProjects />
-          <Technologies />
-          <ContactMe />
+          <IntroSection />
+          <AboutMyselfSection />
+          <MyOpportunitiesSection />
+          <BlogPreviewSection />
+          <ProjectsSection gitHubData={gitHubData} />
+          <BigProjectsSection />
+          <TechnologiesSection />
+          <ContactMeSection />
         </PageContainer>
       </WidthLimiter>
     </>

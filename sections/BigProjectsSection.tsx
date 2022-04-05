@@ -3,7 +3,7 @@ import React from "react";
 import BigProject from "@/components/BigProject";
 import Section from "@/components/Section";
 
-const BigProjects: React.VFC = () => {
+const BigProjectsSection: React.VFC = () => {
   return (
     <Section title="My Big Projects 🤯" label="My Big Projects">
       <BigProject
@@ -22,4 +22,4 @@ const BigProjects: React.VFC = () => {
   );
 };
 
-export default BigProjects;
+export default BigProjectsSection;

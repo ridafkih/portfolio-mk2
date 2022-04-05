@@ -1,10 +1,10 @@
 import React from "react";
 
 import Section from "@/components/Section";
-import BlogPost from "@/components/BlogPost";
+import BlogPost from "@/components/BlogPostPreview";
 import blogs from "@/configs/blogs";
 
-const Blog: React.VFC = () => {
+const BlogPreviewSection: React.VFC = () => {
   return (
     <Section title="Blog Posts 📝">
       <div className="space-y-6">
@@ -16,4 +16,4 @@ const Blog: React.VFC = () => {
   );
 };
 
-export default Blog;
+export default BlogPreviewSection;

@@ -5,7 +5,7 @@ import Technology from "@/components/Technology";
 
 import { technologies } from "@/configs/technologies";
 
-const Technologies: React.VFC = () => {
+const TechnologiesSection: React.VFC = () => {
   return (
     <Section title="My Favourite Tools 🛠️">
       <ul className="grid w-full grid-flow-col grid-rows-[repeat(13,minmax(0,1fr))] sm:grid-rows-[repeat(9,minmax(0,1fr))] gap-2 md:grid-rows-5">
@@ -17,4 +17,4 @@ const Technologies: React.VFC = () => {
   );
 };
 
-export default Technologies;
+export default TechnologiesSection;

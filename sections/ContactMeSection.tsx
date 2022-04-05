@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import DynamicGradient from "@/components/DynamicGradient";
 import Paragraph from "@/components/Paragraph";
 
-const ContactMe: React.VFC = () => {
+const ContactMeSection: React.VFC = () => {
   return (
     <Section label="Have a challenge for me?">
       <div className="relative h-[75vh] flex flex-col items-center justify-center text-center">
@@ -23,4 +23,4 @@ const ContactMe: React.VFC = () => {
   );
 };
 
-export default ContactMe;
+export default ContactMeSection;

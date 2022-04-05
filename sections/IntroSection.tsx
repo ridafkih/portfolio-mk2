@@ -5,7 +5,7 @@ import Heading from "@/components/Heading";
 import Paragraph from "@/components/Paragraph";
 import Section from "@/components/Section";
 
-const Intro: React.VFC = () => (
+const IntroSection: React.VFC = () => (
   <Section>
     <Heading type="h1">Hello, I&apos;m Rida F&apos;kih 👋</Heading>
     <Paragraph weight="light">
@@ -19,4 +19,4 @@ const Intro: React.VFC = () => (
   </Section>
 );
 
-export default Intro;
+export default IntroSection;

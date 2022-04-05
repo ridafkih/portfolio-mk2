@@ -4,7 +4,7 @@ import Link from "next/link";
 import Paragraph from "@/components/Paragraph";
 import Section from "@/components/Section";
 
-const AboutMyself = () => (
+const AboutMyselfSection = () => (
   <Section title="About Myself 🤘">
     <Paragraph weight="light">
       I&apos;m Rida F&apos;kih. I am 21 years old, Canadian, and a self-taught
@@ -34,4 +34,4 @@ const AboutMyself = () => (
   </Section>
 );
 
-export default AboutMyself;
+export default AboutMyselfSection;

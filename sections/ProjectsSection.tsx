@@ -9,7 +9,7 @@ interface ProjectsProps {
   gitHubData: GitHubData[];
 }
 
-const Projects: React.VFC<ProjectsProps> = ({ gitHubData }) => {
+const ProjectsSection: React.VFC<ProjectsProps> = ({ gitHubData }) => {
   return (
     <Section title="My Little Projects ⌨️">
       <ul className="grid gap-8 sm:grid-cols-2">
@@ -21,4 +21,4 @@ const Projects: React.VFC<ProjectsProps> = ({ gitHubData }) => {
   );
 };
 
-export default Projects;
+export default ProjectsSection;
