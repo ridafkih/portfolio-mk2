@@ -9,7 +9,14 @@ const BigProjects: React.VFC = () => {
       <BigProject
         name="Runes"
         link="https://runes.sh/"
+        textGradient="pink"
         description="The better, free-forever password manager."
+      />
+      <BigProject
+        name="Punchcard"
+        textGradient="purple"
+        link="https://punchcard.so/"
+        description="Customer loyalty done wonderfully."
       />
     </Section>
   );
