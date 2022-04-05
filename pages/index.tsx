@@ -4,6 +4,7 @@ import Head from "next/head";
 import Handlebars from "@/components/Handlebars";
 import PageContainer from "@/components/PageContainer";
 import Header from "@/components/Header";
+import WidthLimiter from "@/components/WidthLimiter";
 
 import MyOpportunities from "@/sections/MyOpportunities";
 import AboutMyself from "@/sections/AboutMyself";
@@ -28,7 +29,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
       <Head>
         <title>Rida F&apos;kih — Software Developer Portfolio</title>
       </Head>
-      <div className="w-full max-w-[52rem] mx-auto">
+      <WidthLimiter>
         <Handlebars email="hello@rida.dev" />
         <Header />
         <PageContainer>
@@ -41,7 +42,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
           <Technologies />
           <ContactMe />
         </PageContainer>
-      </div>
+      </WidthLimiter>
     </>
   );
 };
