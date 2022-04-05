@@ -17,13 +17,13 @@ const Navigation: React.VFC<NavigationProps> = ({ items }) => {
   const router = useRouter();
   const plink = usePlink();
 
-  const handleClick = plink.play;
+  const handleClick = () => plink.play();
 
   return (
     <nav>
       <ul className="flex gap-4">
         {items.map(({ name, path }) => {
-          const isOnPage = router.asPath === path;
+          const isOnPage = (router.asPath || "/") === path;
           const weightClass = isOnPage
             ? "font-normal opacity-100"
             : "font-thin opacity-80";
