@@ -20,7 +20,7 @@ const Scrawl: React.FC<ScrawlProps> = ({ children, date }) => {
       <Paragraph>
         <span className="text-xl font-cursive">&quot;{children}&quot;</span>
       </Paragraph>
-      <time dateTime={date.toString()}>{getParsedDate}</time>
+      <time dateTime={date.toString()}>{getParsedDate()}</time>
     </li>
   );
 };
