@@ -17,7 +17,7 @@ const Scrawl: React.FC<ScrawlProps> = ({ children, sentimentEmoji, date }) => {
     });
 
   return (
-    <li className="flex flex-col-reverse gap-4 py-2 border-b rounded-md sm:px-4 sm:-mx-4">
+    <li className="flex flex-col-reverse gap-4 py-4 border-b rounded-md sm:px-4 sm:-mx-4">
       <Paragraph>
         <span className="text-xl font-cursive">&quot;{children}&quot;</span>
       </Paragraph>
