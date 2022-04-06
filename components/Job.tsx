@@ -20,7 +20,7 @@ const Job: React.VFC<JobProps> = ({
   jobEnd,
 }) => {
   return (
-    <li className="relative pt-8 space-y-2 border-t rounded-sm first:pt-0 first:border-none border-t-neutral-300 dark:border-t-neutral-700">
+    <li className="relative pt-8 space-y-2 border-t rounded-sm sm:px-4 sm:-mx-4 first:pt-0 first:border-none border-t-neutral-300 dark:border-t-neutral-700">
       <div className="flex flex-col-reverse items-start justify-between sm:flex-row-reverse">
         <div className="sm:text-right opacity-80">
           <h3 className="font-medium">{jobTitle}</h3>
