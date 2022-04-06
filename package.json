@@ -23,6 +23,7 @@
     "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.3.1",
     "@types/jsdom": "^16.2.14",
     "@types/node": "17.0.23",
     "@types/react": "17.0.43",
