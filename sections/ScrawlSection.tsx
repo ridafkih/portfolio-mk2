@@ -9,9 +9,13 @@ const ScrawlSection: React.VFC = () => {
 
   return (
     <ul className="space-y-4">
-      {scrawls.map(({ content, date }) => {
+      {scrawls.map(({ content, sentimentEmoji, date }) => {
         return (
-          <Scrawl key={getKey(content, date)} date={date}>
+          <Scrawl
+            key={getKey(content, date)}
+            date={date}
+            sentimentEmoji={sentimentEmoji}
+          >
             {content}
           </Scrawl>
         );

@@ -3,10 +3,11 @@ import React from "react";
 import Paragraph from "@/components/Paragraph";
 
 interface ScrawlProps {
+  sentimentEmoji: string;
   date: Date;
 }
 
-const Scrawl: React.FC<ScrawlProps> = ({ children, date }) => {
+const Scrawl: React.FC<ScrawlProps> = ({ children, sentimentEmoji, date }) => {
   const getParsedDate = () =>
     date.toLocaleDateString("en-US", {
       month: "long",
@@ -20,12 +21,15 @@ const Scrawl: React.FC<ScrawlProps> = ({ children, date }) => {
       <Paragraph>
         <span className="text-xl font-cursive">&quot;{children}&quot;</span>
       </Paragraph>
-      <time
-        className="text-xs text-neutral-500 sm:text-right"
-        dateTime={date.toString()}
-      >
-        {getParsedDate()}
-      </time>
+      <div className="flex items-center justify-end gap-2">
+        <time
+          className="text-xs text-neutral-500 sm:text-right"
+          dateTime={date.toString()}
+        >
+          {getParsedDate()}
+        </time>
+        <span className="animate-pulse">{sentimentEmoji}</span>
+      </div>
     </li>
   );
 };
