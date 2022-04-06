@@ -8,7 +8,7 @@ const PhotosPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Rida F&apos;kih — Blog</title>
+        <title>Rida F&apos;kih — Photos</title>
       </Head>
       <WidthLimiter>
         <Header />
