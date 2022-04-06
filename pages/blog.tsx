@@ -7,6 +7,8 @@ import PageContainer from "@/components/PageContainer";
 import Heading from "@/components/Heading";
 import Paragraph from "@/components/Paragraph";
 
+import BlogListSection from "@/sections/BlogListSection";
+
 const BlogPage: NextPage = () => {
   return (
     <>
@@ -19,10 +21,10 @@ const BlogPage: NextPage = () => {
           <div className="space-y-4">
             <Heading type="h1">My Blog</Heading>
             <Paragraph weight="light">
-              I bevy of writing about topics not limited to software
-              development.
+              A bevy of writing about topics I love.
             </Paragraph>
           </div>
+          <BlogListSection />
         </PageContainer>
       </WidthLimiter>
     </>
