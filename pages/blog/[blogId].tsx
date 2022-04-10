@@ -28,12 +28,12 @@ const BlogPage: NextPage<BlogPageProps> = ({ blocks, title, cover }) => {
   return (
     <>
       <Head>
-        <title>Rida F&apos;kih — Blog</title>
+        <title>Rida F&apos;kih — {title}</title>
       </Head>
       <WidthLimiter>
         <Header />
         <PageContainer>
-          <div className="space-y-12">
+          <div className="pb-24 space-y-12">
             {cover && (
               <Image
                 src={cover}
