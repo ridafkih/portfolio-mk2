@@ -1,13 +1,13 @@
 import React from "react";
 
-import { NotionBlock, NotionBlockRendererProps } from "@/@types/notion";
+import { NotionBlockResponse, NotionBlockRendererProps } from "@/@types/notion";
 
 type NotionRendererFactory = (map: NotionBlockRendererProps) => {
   NotionRenderer: React.VFC<NotionRendererProps>;
 };
 
 interface NotionRendererProps {
-  blockResponse: NotionBlock<string>[];
+  blockResponse: NotionBlockResponse<string>[];
 }
 
 /**
@@ -17,13 +17,13 @@ interface NotionRendererProps {
  */
 export const makeNotionRenderer: NotionRendererFactory = (map) => {
   const NotionRenderer = ({ blockResponse }: NotionRendererProps) => {
-    const blocks: NotionBlock<keyof typeof map>[] = blockResponse;
+    const blocks: NotionBlockResponse<keyof typeof map>[] = blockResponse;
 
     return (
       <>
         {blocks.map((props) => {
           const { type } = props;
-          const Block = map[type] as React.VFC<NotionBlock>;
+          const Block = map[type] as React.VFC<NotionBlockResponse>;
           if (!Block) return void 0;
           return <Block key={props.id} {...props} />;
         })}
