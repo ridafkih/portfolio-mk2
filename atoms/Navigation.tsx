@@ -21,7 +21,7 @@ const Navigation: React.VFC<NavigationProps> = ({ items }) => {
 
   return (
     <nav>
-      <ul className="flex gap-4">
+      <ul className="flex flex-col gap-4 sm:flex-row">
         {items.map(({ name, path }) => {
           const isOnPage = router.pathname === path;
           const weightClass = isOnPage
