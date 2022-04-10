@@ -19,12 +19,15 @@ import BigProjectsSection from "@/sections/BigProjectsSection";
 import { getProjectsFromGitHub } from "@/utils/projects";
 
 import { GitHubData } from "@/@types/github";
+import { getBlogList } from "@/utils/blog";
+import { BlogPost } from "@/@types/blog";
 
 interface HomeProps {
   gitHubData: GitHubData[];
+  blogData: BlogPost[];
 }
 
-const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
+const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
   return (
     <>
       <Head>
@@ -37,7 +40,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
           <IntroSection />
           <AboutMyselfSection />
           <MyOpportunitiesSection />
-          <BlogPreviewSection />
+          <BlogPreviewSection blogs={blogData.slice(0, 3)} />
           <ProjectsSection gitHubData={gitHubData} />
           <BigProjectsSection />
           <TechnologiesSection />
@@ -49,10 +52,13 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
 };
 
 export async function getStaticProps() {
-  const gitHubData = await getProjectsFromGitHub("ridafkih");
+  const [gitHubData, blogData] = await Promise.all([
+    getProjectsFromGitHub("ridafkih"),
+    getBlogList(),
+  ]);
 
   return {
-    props: { gitHubData },
+    props: { gitHubData, blogData },
     revalidate: 60 * 30,
   };
 }

@@ -18,14 +18,14 @@ const handler: NextApiHandler<NotionBlockResponseList> = async (
     database_id: NOTION_DATABASE_ID!,
   });
 
-  const [{ id: pageId }] = database.results;
+  const {} = database.results.find(({ id }) => id === pageId);
   const blocks = await notion.blocks.children.list({ block_id: pageId });
 
   const populatedBlocks = blocks.results.filter((block) => {
     return !!(block as { type?: string }).type;
   }) as NotionBlockResponseList;
 
-  response.json(populatedBlocks);
+  return populatedBlocks;
 };
 
 export default handler;

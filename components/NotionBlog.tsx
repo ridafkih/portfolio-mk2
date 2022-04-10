@@ -24,18 +24,14 @@ const { NotionRenderer } = makeNotionRenderer({
   code: NotionCodeBlock,
 });
 
-const NotionBlog = () => {
-  const [blockList, setBlockList] = useState<NotionBlockResponseList>([]);
+interface NotionBlogProps {
+  blocks: NotionBlockResponseList;
+}
 
-  useEffect(() => {
-    axios.get<NotionBlockResponseList>("/api/blogs/first").then(({ data }) => {
-      setBlockList(data);
-    });
-  }, []);
-
+const NotionBlog: React.VFC<NotionBlogProps> = ({ blocks }) => {
   return (
     <div className="space-y-4">
-      <NotionRenderer blockResponse={blockList} />
+      <NotionRenderer blockResponse={blocks} />
     </div>
   );
 };

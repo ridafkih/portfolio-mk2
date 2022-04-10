@@ -8,8 +8,14 @@ import Heading from "@/atoms/Heading";
 import Paragraph from "@/atoms/Paragraph";
 
 import BlogListSection from "@/sections/BlogListSection";
+import { BlogPost } from "@/@types/blog";
+import { getBlogList } from "@/utils/blog";
 
-const BlogPage: NextPage = () => {
+interface BlogPageProps {
+  blogs: BlogPost[];
+}
+
+const BlogPage: NextPage<BlogPageProps> = ({ blogs }) => {
   return (
     <>
       <Head>
@@ -24,11 +30,16 @@ const BlogPage: NextPage = () => {
               A bevy of writing about topics I love.
             </Paragraph>
           </div>
-          <BlogListSection />
+          <BlogListSection blogs={blogs} />
         </PageContainer>
       </WidthLimiter>
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const blogs = await getBlogList();
+  return { props: { blogs } };
 };
 
 export default BlogPage;
