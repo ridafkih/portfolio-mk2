@@ -54,10 +54,14 @@ export const getBlogList = async (): Promise<BlogPost[]> => {
 
     if (properties.Status.select.name !== "Complete") continue;
 
+    const fileImage = page.cover?.type === "file" ? page.cover.file.url : "";
+    const externalImage =
+      page.cover?.type === "external" ? page.cover.external.url : "";
+
     pages.push({
       id: page.id,
       cover: {
-        url: page.cover?.type === "external" ? page.cover.external.url : "",
+        url: fileImage || externalImage,
       },
       status: properties.Status.select.name,
       created: page.created_time,
