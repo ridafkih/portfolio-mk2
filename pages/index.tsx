@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import Handlebars from "@/components/Handlebars";
 import PageContainer from "@/atoms/PageContainer";
-import Header from "@/components/Header";
 import WidthLimiter from "@/atoms/WidthLimiter";
+
+import Handlebars from "@/components/Handlebars";
+import Header from "@/components/Header";
 
 import MyOpportunitiesSection from "@/sections/MyOpportunitiesSection";
 import AboutMyselfSection from "@/sections/AboutMyselfSection";
