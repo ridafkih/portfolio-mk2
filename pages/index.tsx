@@ -17,7 +17,7 @@ import BigProjectsSection from "@/sections/BigProjectsSection";
 
 import { getProjectsFromGitHub } from "@/utils/projects";
 
-import GitHubData from "@/@types/GitHubData";
+import { GitHubData } from "@/@types/github";
 
 interface HomeProps {
   gitHubData: GitHubData[];

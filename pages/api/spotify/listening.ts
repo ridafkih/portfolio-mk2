@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import SpotifyListeningData from "@/@types/SpotifyListeningData";
+import { SpotifyListeningData } from "@/@types/spotify";
+
 import {
   getSpotifyListeningData,
   refreshSpotifyAccessToken,

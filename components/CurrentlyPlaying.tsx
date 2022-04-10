@@ -5,7 +5,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 
-import SpotifyListeningData from "@/@types/SpotifyListeningData";
+import { SpotifyListeningData } from "@/@types/spotify";
 import Image from "next/image";
 
 const CurrentlyPlaying = () => {

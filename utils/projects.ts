@@ -1,4 +1,4 @@
-import GitHubData from "@/@types/GitHubData";
+import { GitHubData } from "@/@types/github";
 
 import axios from "axios";
 import { JSDOM } from "jsdom";
