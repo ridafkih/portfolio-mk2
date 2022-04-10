@@ -16,19 +16,11 @@ export const NotionCodeBlock: NotionBlockComponent<NotionBlock.CODE> = (
   }, [codeBlockElement]);
 
   return (
-    <pre
-      className="rounded-md"
-      style={{
-        marginLeft: "-1.5rem",
-        marginRight: "-1.5rem",
-        paddingLeft: "1.5rem",
-        paddingRight: "1.5rem",
-      }}
-    >
+    <pre className="!my-8 rounded-md sm:!-mx-6 sm:!px-6">
       <code
         ref={codeBlockElement}
-        className={`language-${language}`}
-        style={{ fontSize: "0.9rem", tabSize: 2 }}
+        className={`language-${language} !text-sm`}
+        style={{ tabSize: 2 }}
       >
         {rich_text[0].plain_text}
       </code>
