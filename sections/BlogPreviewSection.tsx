@@ -1,15 +1,19 @@
 import React from "react";
 
-import Section from "@/components/Section";
-import BlogPost from "@/components/BlogPostPreview";
-import blogs from "@/configs/blogs";
+import Section from "@/atoms/Section";
+import BlogPostPreview from "@/components/BlogPostPreview";
+import { BlogPost } from "@/@types/blog";
 
-const BlogPreviewSection: React.VFC = () => {
+interface BlogPreviewSection {
+  blogs: BlogPost[];
+}
+
+const BlogPreviewSection: React.VFC<BlogPreviewSection> = ({ blogs }) => {
   return (
     <Section title="Blog Posts 📝">
       <div className="space-y-6">
         {blogs.map((props) => {
-          return <BlogPost key={props.title} {...props} />;
+          return <BlogPostPreview key={props.title} {...props} />;
         })}
       </div>
     </Section>

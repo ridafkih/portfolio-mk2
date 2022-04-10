@@ -24,7 +24,7 @@ const Paragraph: React.FC<ParagraphProps> = ({
 
   return (
     <p
-      className={`leading-7 ${paragraphWeights[weight]} ${alignmentClass}`}
+      className={`whitespace-pre-line leading-7 ${paragraphWeights[weight]} ${alignmentClass}`}
       style={characterLimit ? { maxWidth: `${characterLimit}ch` } : {}}
     >
       {children}

@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import Section from "@/components/Section";
+import Section from "@/atoms/Section";
 import DynamicGradient from "@/components/DynamicGradient";
-import Paragraph from "@/components/Paragraph";
+import Paragraph from "@/atoms/Paragraph";
 
 const ContactMeSection: React.VFC = () => {
   return (

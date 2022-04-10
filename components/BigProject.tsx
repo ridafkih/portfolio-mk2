@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
-import Heading from "@/components/Heading";
-import Paragraph from "@/components/Paragraph";
+import Heading from "@/atoms/Heading";
+import Paragraph from "@/atoms/Paragraph";
 
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
