@@ -12,8 +12,8 @@ export type NotionBlockResponse<T = string> = Extract<
 
 export type NotionBlockResponseList<T = string> = NotionBlockResponse<T>[];
 
-export type NotionBlockComponent<T, P = {}> = React.VFC<
-  NotionBlockResponse<T> & P
+export type NotionBlockComponent<T extends NotionBlock, P = {}> = React.VFC<
+  NotionBlockResponse<`${T}`> & P
 >;
 
 export type NotionBlockRendererProps = {
@@ -25,8 +25,8 @@ export enum NotionBlock {
   HEADING_1 = "heading_1",
   HEADING_2 = "heading_2",
   HEADING_3 = "heading_3",
-  BULLETED_LIST = "bulleted_list_item",
-  NUMBERED_LIST = "numbered_list_item",
+  BULLETED_LIST_ITEM = "bulleted_list_item",
+  NUMBERED_LIST_ITEM = "numbered_list_item",
   QUOTE = "quote",
   TODO = "to_do",
   TOGGLE = "toggle",
