@@ -1,6 +1,6 @@
 import React from "react";
 
-import Paragraph from "@/components/Paragraph";
+import Paragraph from "@/atoms/Paragraph";
 
 interface ScrawlProps {
   sentimentEmoji: string;

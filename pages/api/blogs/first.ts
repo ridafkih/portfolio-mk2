@@ -1,7 +1,7 @@
 import { NextApiHandler } from "next";
 import { Client as NotionClient } from "@notionhq/client";
 
-import { NotionBlockList } from "@/@types/notion";
+import { NotionBlockResponseList } from "@/@types/notion";
 
 const { NOTION_DATABASE_ID, NOTION_TOKEN } = process.env;
 
@@ -10,7 +10,10 @@ const notion = new NotionClient({
   auth: NOTION_TOKEN,
 });
 
-const handler: NextApiHandler<NotionBlockList> = async (_request, response) => {
+const handler: NextApiHandler<NotionBlockResponseList> = async (
+  _request,
+  response
+) => {
   const database = await notion.databases.query({
     database_id: NOTION_DATABASE_ID!,
   });
@@ -20,7 +23,7 @@ const handler: NextApiHandler<NotionBlockList> = async (_request, response) => {
 
   const populatedBlocks = blocks.results.filter((block) => {
     return !!(block as { type?: string }).type;
-  }) as NotionBlockList;
+  }) as NotionBlockResponseList;
 
   response.json(populatedBlocks);
 };

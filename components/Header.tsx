@@ -1,7 +1,7 @@
 import React from "react";
 
 import CurrentlyPlaying from "@/components/CurrentlyPlaying";
-import Navigation from "@/components/Navigation";
+import Navigation from "@/atoms/Navigation";
 
 const navItems = [
   {

@@ -1,8 +1,8 @@
 import React from "react";
 
-import Heading from "@/components/Heading";
+import Heading from "@/atoms/Heading";
 import DateRange from "@/components/DateRange";
-import Paragraph from "@/components/Paragraph";
+import Paragraph from "@/atoms/Paragraph";
 
 interface JobProps {
   companyName: string;

@@ -2,8 +2,8 @@ import React from "react";
 
 import { StarFilledIcon } from "@radix-ui/react-icons";
 
-import Heading from "@/components/Heading";
-import Paragraph from "@/components/Paragraph";
+import Heading from "@/atoms/Heading";
+import Paragraph from "@/atoms/Paragraph";
 
 interface ProjectProps {
   name: string;

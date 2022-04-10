@@ -1,7 +1,7 @@
 import React from "react";
 
 import Job from "@/components/Job";
-import Section from "@/components/Section";
+import Section from "@/atoms/Section";
 
 import jobs from "@/configs/jobs";
 

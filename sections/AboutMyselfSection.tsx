@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
-import Paragraph from "@/components/Paragraph";
-import Section from "@/components/Section";
+import Paragraph from "@/atoms/Paragraph";
+import Section from "@/atoms/Section";
 
 const AboutMyselfSection = () => (
   <Section title="About Myself 🤘">

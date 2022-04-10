@@ -1,6 +1,6 @@
 import React from "react";
 
-import Section from "@/components/Section";
+import Section from "@/atoms/Section";
 import BlogPost from "@/components/BlogPostPreview";
 import blogs from "@/configs/blogs";
 
