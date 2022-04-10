@@ -11,6 +11,11 @@ const notion = new NotionClient({
   auth: NOTION_TOKEN,
 });
 
+/**
+ * Gets a list of Notion blocks from a page.
+ * @param pageId The id of the page to get blocks from.
+ * @returns An array of Notion blocks.
+ */
 export const getBlogBlocks = async (
   pageId: string
 ): Promise<NotionBlockResponseList> => {
@@ -29,6 +34,10 @@ export const getBlogBlocks = async (
   return populatedBlocks;
 };
 
+/**
+ * Gets a list of blogs from Notion as a CMS.
+ * @returns A list of blogs.
+ */
 export const getBlogList = async (): Promise<BlogPost[]> => {
   const { results } = await notion.databases.query({
     database_id: NOTION_DATABASE_ID!,
