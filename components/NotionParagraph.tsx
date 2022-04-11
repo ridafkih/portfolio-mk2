@@ -14,7 +14,7 @@ const NotionParagraph: NotionBlockComponent<NotionBlock.PARAGRAPH> = (
     return <Paragraph>{rich_text[0].plain_text}</Paragraph>;
 
   return (
-    <Paragraph>
+    <Paragraph weight="light">
       {rich_text.map(({ annotations, plain_text, href }, index) => {
         type AnnotationClassMap = { [P in keyof typeof annotations]?: string };
         const annotationClassMap: AnnotationClassMap = {
@@ -27,7 +27,7 @@ const NotionParagraph: NotionBlockComponent<NotionBlock.PARAGRAPH> = (
           (accumulator, [key, value]) => {
             const classValue =
               annotationClassMap[key as keyof AnnotationClassMap] || "";
-            return accumulator + (value ? classValue : "");
+            return accumulator + (value ? `${classValue} ` : "");
           },
           ""
         );
