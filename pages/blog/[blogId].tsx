@@ -11,13 +11,6 @@ import { NotionBlockResponseList } from "@/@types/notion";
 import Heading from "@/atoms/Heading";
 import Image from "next/image";
 
-const formatBlogUuid = (uuid: string) => {
-  return uuid.replace(
-    /([A-z0-9]{8})([A-z0-9]{4})([A-z0-9]{4})([A-z0-9]{4})([A-z0-9])/,
-    "$1-$2-$3-$4-$5"
-  );
-};
-
 interface BlogPageProps {
   blocks: NotionBlockResponseList;
   title: string;
