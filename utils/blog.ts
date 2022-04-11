@@ -52,7 +52,11 @@ export const getBlogList = async (): Promise<BlogPost[]> => {
     const properties: BlogPostProperties =
       page.properties as unknown as BlogPostProperties;
 
+    const now = new Date();
+    const releaseDate = new Date(properties["Release Date"].date.start);
+
     if (properties.Status.select.name !== "Complete") continue;
+    if (releaseDate >= now) continue;
 
     const fileImage = page.cover?.type === "file" ? page.cover.file.url : "";
     const externalImage =

@@ -17,8 +17,8 @@ export interface BlogPostProperties {
     id: string;
     type: "date";
     date: {
-      start: Date;
-      end: Date | null;
+      start: string;
+      end: string | null;
     };
   };
   Status: {
