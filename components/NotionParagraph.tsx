@@ -11,7 +11,7 @@ const NotionParagraph: NotionBlockComponent<NotionBlock.PARAGRAPH> = (
   const { rich_text } = props.paragraph;
 
   if (rich_text.length === 1)
-    return <Paragraph>{rich_text[0].plain_text}</Paragraph>;
+    return <Paragraph weight="light">{rich_text[0].plain_text}</Paragraph>;
 
   return (
     <Paragraph weight="light">
