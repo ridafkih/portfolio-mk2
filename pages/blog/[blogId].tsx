@@ -35,13 +35,15 @@ const BlogPage: NextPage<BlogPageProps> = ({ blocks, title, cover }) => {
         <PageContainer>
           <div className="pb-24 space-y-12">
             {cover && (
-              <Image
-                src={cover}
-                className="!w-full !h-full !max-h-36 !object-cover rounded-md"
-                height="512"
-                width="1200"
-                alt=""
-              />
+              <div className="sm:-mx-12">
+                <Image
+                  src={cover}
+                  className="!w-full !h-full !max-h-36 !object-cover rounded-md"
+                  height="512"
+                  width="1200"
+                  alt=""
+                />
+              </div>
             )}
             <Heading type="h1">{title}</Heading>
             <NotionBlog blocks={blocks} />
