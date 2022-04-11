@@ -3,6 +3,7 @@ import React from "react";
 import Paragraph from "@/atoms/Paragraph";
 
 import { NotionBlock, NotionBlockComponent } from "@/@types/notion";
+import Link from "next/link";
 
 const NotionParagraph: NotionBlockComponent<NotionBlock.PARAGRAPH> = (
   props
@@ -14,7 +15,7 @@ const NotionParagraph: NotionBlockComponent<NotionBlock.PARAGRAPH> = (
 
   return (
     <Paragraph>
-      {rich_text.map(({ annotations, plain_text }, index) => {
+      {rich_text.map(({ annotations, plain_text, href }, index) => {
         type AnnotationClassMap = { [P in keyof typeof annotations]?: string };
         const annotationClassMap: AnnotationClassMap = {
           code: "p-1 font-mono text-sm rounded-sm text-neutral-100 bg-neutral-800",
@@ -33,7 +34,13 @@ const NotionParagraph: NotionBlockComponent<NotionBlock.PARAGRAPH> = (
 
         return (
           <span key={index} className={className}>
-            {plain_text}
+            {!href ? (
+              plain_text
+            ) : (
+              <Link href={href}>
+                <a target="blog_out">{plain_text}</a>
+              </Link>
+            )}
           </span>
         );
       })}
