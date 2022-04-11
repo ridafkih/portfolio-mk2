@@ -39,11 +39,11 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
         <PageContainer>
           <IntroSection />
           <AboutMyselfSection />
-          <MyOpportunitiesSection />
           <BlogPreviewSection blogs={blogData.slice(0, 3)} />
+          <TechnologiesSection />
+          <MyOpportunitiesSection />
           <ProjectsSection gitHubData={gitHubData} />
           <BigProjectsSection />
-          <TechnologiesSection />
           <ContactMeSection />
         </PageContainer>
       </WidthLimiter>
