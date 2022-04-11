@@ -29,7 +29,7 @@ const CurrentlyPlaying = () => {
 
   return (
     <div
-      className={`flex items-center gap-2 ${
+      className={`flex flex-col-reverse items-end sm:flex-row sm:items-center gap-2 ${
         spotifyData.isPlaying ? "animate-pulse" : "opacity-75"
       }`}
     >
@@ -43,7 +43,7 @@ const CurrentlyPlaying = () => {
             className="font-normal after:bg-transparent"
             target="spotify:link_out"
           >
-            <div className="flex items-center gap-2">
+            <div className="flex flex-row-reverse items-center gap-2 sm:flex-row-reverse">
               {spotifyData.image?.url && (
                 <Image
                   className="rounded"
@@ -53,7 +53,7 @@ const CurrentlyPlaying = () => {
                   alt={`${spotifyData.name} by ${spotifyData.artists} album cover.`}
                 />
               )}
-              <span className="text-right cursor-alias">
+              <span className="max-w-[16ch] md:max-w-none text-right cursor-alias">
                 {spotifyData.name} by {spotifyData.artists}
               </span>
             </div>
