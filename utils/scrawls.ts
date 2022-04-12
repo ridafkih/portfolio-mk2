@@ -32,8 +32,6 @@ export const getScrawls = async () => {
     if (!("properties" in page)) continue;
     const properties = page.properties as unknown as ScrawlProperties;
 
-    console.log(properties.Emoji.rich_text);
-
     scrawls.push({
       text: properties.Scrawl.title[0].plain_text,
       emoji: properties.Emoji.rich_text[0].plain_text,
