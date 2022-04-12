@@ -23,7 +23,8 @@
     "prismjs": "^1.27.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "spotify-web-api-node": "^5.0.2"
+    "spotify-web-api-node": "^5.0.2",
+    "next-use-posthog": "^1.16.0"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.3.1",
