@@ -10,13 +10,15 @@ import NotionBlog from "@/components/NotionBlog";
 import { NotionBlockResponseList } from "@/@types/notion";
 import Heading from "@/atoms/Heading";
 import Image from "next/image";
+import MetaData from "@/components/MetaData";
+import { useRouter } from "next/router";
+import { getCurrentUrl } from "@/utils/url";
 
 interface BlogPageProps {
   blocks: NotionBlockResponseList;
   title: string;
   description: string;
   cover?: string;
-  url: string;
 }
 
 const BlogPage: NextPage<BlogPageProps> = ({
@@ -24,27 +26,18 @@ const BlogPage: NextPage<BlogPageProps> = ({
   title,
   description,
   cover,
-  url,
 }) => {
-  const fullUrl = `https://rida.dev${url}`;
+  const router = useRouter();
 
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={fullUrl} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={cover} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={fullUrl} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={cover} />
+        <MetaData
+          title={title}
+          description={description}
+          currentUrl={getCurrentUrl(router.asPath)}
+          bannerUrl={cover}
+        />
       </Head>
       <WidthLimiter>
         <Header />
@@ -94,7 +87,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       title: blog.title,
       cover: blog.cover.url,
       description: blog.description,
-      url: blog.url,
     },
     revalidate: 10 * 1000,
   };

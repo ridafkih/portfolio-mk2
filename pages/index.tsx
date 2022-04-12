@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Head from "next/head";
+import { useRouter } from "next/router";
 
 import PageContainer from "@/atoms/PageContainer";
 import WidthLimiter from "@/atoms/WidthLimiter";
@@ -30,9 +30,6 @@ interface HomeProps {
 const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
   return (
     <>
-      <Head>
-        <title>Rida F&apos;kih — Software Developer Portfolio</title>
-      </Head>
       <WidthLimiter>
         <Handlebars email="hello@rida.dev" />
         <Header />
