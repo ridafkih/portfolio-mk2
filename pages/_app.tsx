@@ -9,10 +9,12 @@ import MetaData from "@/components/MetaData";
 
 import { getCurrentUrl } from "@/utils/url";
 import { SpotifyProvider } from "@/contexts/SpotifyContext";
+import { useTwitterAnalytics } from "@/hooks/useTwitterAnalytics";
 
 const MyApp: React.VFC<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
 
+  useTwitterAnalytics();
   usePostHog("phc_Eha0Zvd4PTi3HOq5nqS9GisOI13f2pt0zB7J6iPP8oE", {
     api_host: "https://app.posthog.com",
   });
