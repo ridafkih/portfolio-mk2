@@ -26,15 +26,17 @@ const CurrentlyPlaying = () => {
             className="font-normal after:bg-transparent"
             target="spotify:link_out"
           >
-            <div className="flex flex-row-reverse items-center gap-2 sm:flex-row-reverse">
+            <div className="flex flex-row-reverse items-start gap-2 sm:items-center sm:flex-row-reverse">
               {spotifyData.image?.url && (
-                <Image
-                  className="rounded"
-                  width={18}
-                  height={18}
-                  src={spotifyData.image.url}
-                  alt={`${spotifyData.name} by ${spotifyData.artists} album cover.`}
-                />
+                <div className="min-h-[1em] min-w-[1em] mt-1 sm:mt-0 flex sm:items-center">
+                  <Image
+                    className="rounded"
+                    width={18}
+                    height={18}
+                    src={spotifyData.image.url}
+                    alt={`${spotifyData.name} by ${spotifyData.artists} album cover.`}
+                  />
+                </div>
               )}
               <span className="max-w-[16ch] md:max-w-none text-right cursor-alias">
                 {spotifyData.name} by {spotifyData.artists}
