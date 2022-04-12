@@ -31,14 +31,12 @@ const BlogPage: NextPage<BlogPageProps> = ({
 
   return (
     <>
-      <Head>
-        <MetaData
-          title={title}
-          description={description}
-          currentUrl={getCurrentUrl(router.asPath)}
-          bannerUrl={cover}
-        />
-      </Head>
+      <MetaData
+        title={title}
+        description={description}
+        currentUrl={getCurrentUrl(router.asPath)}
+        bannerUrl={cover}
+      />
       <WidthLimiter>
         <Header />
         <PageContainer>

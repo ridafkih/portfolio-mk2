@@ -13,14 +13,7 @@ const MyApp: React.VFC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Head>
-        <MetaData
-          title="Rida F'kih — Developer & Designer"
-          description="I'm a Canadian software developer based in Calgary, Alta., I learned to code make my life a little easier. I currently work at MaxRewards as a reverse engineer & fullstack developer."
-          currentUrl={getCurrentUrl(router.asPath)}
-          bannerUrl={getCurrentUrl("/meta-preview.png")}
-        />
-      </Head>
+      <MetaData currentUrl={getCurrentUrl(router.asPath)} />
       <Component {...pageProps} />
     </>
   );

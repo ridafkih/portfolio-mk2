@@ -11,17 +11,23 @@ import PhotosList from "@/components/PhotosList";
 import { getPhotos } from "@/utils/photos";
 
 import { Photo } from "@/@types/photos";
+import MetaData from "@/components/MetaData";
+import { useRouter } from "next/router";
+import { getCurrentUrl } from "@/utils/url";
 
 interface PhotosPageProps {
   photos: Photo[];
 }
 
 const PhotosPage: NextPage<PhotosPageProps> = ({ photos }) => {
+  const router = useRouter();
+
   return (
     <>
-      <Head>
-        <title>Rida F&apos;kih — Photos</title>
-      </Head>
+      <MetaData
+        title="Rida F'kih — Photos"
+        currentUrl={getCurrentUrl(router.asPath)}
+      />
       <WidthLimiter>
         <Header />
         <PageContainer>

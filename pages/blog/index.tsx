@@ -10,17 +10,23 @@ import Paragraph from "@/atoms/Paragraph";
 import BlogListSection from "@/sections/BlogListSection";
 import { BlogPost } from "@/@types/blog";
 import { getBlogList } from "@/utils/blog";
+import MetaData from "@/components/MetaData";
+import { useRouter } from "next/router";
+import { getCurrentUrl } from "@/utils/url";
 
 interface BlogPageProps {
   blogs: BlogPost[];
 }
 
 const BlogPage: NextPage<BlogPageProps> = ({ blogs }) => {
+  const router = useRouter();
+
   return (
     <>
-      <Head>
-        <title>Rida F&apos;kih — Blog</title>
-      </Head>
+      <MetaData
+        title="Rida F'kih — Blog"
+        currentUrl={getCurrentUrl(router.asPath)}
+      />
       <WidthLimiter>
         <Header />
         <PageContainer>

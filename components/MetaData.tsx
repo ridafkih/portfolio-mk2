@@ -1,21 +1,23 @@
+import { getCurrentUrl } from "@/utils/url";
+import Head from "next/head";
 import React from "react";
 
 interface MetaDataProps {
-  title: string;
-  description: string;
-  currentUrl: string;
+  title?: string;
+  description?: string;
   bannerUrl?: string;
+  currentUrl: string;
 }
 
 const MetaData: React.VFC<MetaDataProps> = ({
-  title,
-  description,
+  title = "Rida F'kih — Developer & Designer",
+  description = "I'm a Canadian software developer based in Calgary, Alta., I learned to code make my life a little easier. I currently work at MaxRewards as a reverse engineer & fullstack developer.",
+  bannerUrl = getCurrentUrl("/meta-preview.png"),
   currentUrl,
-  bannerUrl,
 }) => {
   return (
-    <>
-      <title>{title}</title>
+    <Head>
+      <title key="beans">{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
 
@@ -30,7 +32,7 @@ const MetaData: React.VFC<MetaDataProps> = ({
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={bannerUrl} />
-    </>
+    </Head>
   );
 };
 

@@ -11,17 +11,23 @@ import ScrawlSection from "@/sections/ScrawlSection";
 import { getScrawls } from "@/utils/scrawls";
 
 import { Scrawl } from "@/@types/scrawls";
+import MetaData from "@/components/MetaData";
+import { getCurrentUrl } from "@/utils/url";
+import { useRouter } from "next/router";
 
 interface ScrawlsPageProps {
   scrawls: Scrawl[];
 }
 
 const ScrawlsPage: NextPage<ScrawlsPageProps> = ({ scrawls }) => {
+  const router = useRouter();
+
   return (
     <>
-      <Head>
-        <title>Rida F&apos;kih — Scrawls</title>
-      </Head>
+      <MetaData
+        title="Rida F'kih — Scrawls"
+        currentUrl={getCurrentUrl(router.asPath)}
+      />
       <WidthLimiter>
         <Header />
         <PageContainer>
