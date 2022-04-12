@@ -20,7 +20,7 @@ const PhotosList: React.VFC<PhotosListProps> = ({ photos }) => {
   return (
     <div className="grid grid-cols-1 gap-2">
       {photos.map(({ url, date, caption }) => (
-        <div key={url} className="relative border-md">
+        <div key={url} className="relative sm:-mx-4 border-md">
           <Image
             src={url}
             alt={caption}
