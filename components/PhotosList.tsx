@@ -30,7 +30,7 @@ const PhotosList: React.VFC<PhotosListProps> = ({ photos }) => {
             width="640"
           />
           <time
-            className="absolute bottom-0 right-0 text-sm text-white -translate-x-4 -translate-y-2"
+            className="absolute p-1 px-2 text-xs text-white bg-opacity-75 rounded-md bottom-4 right-6 bg-neutral-900"
             dateTime={date}
           >
             {parseDate(stringToDate(date))}
