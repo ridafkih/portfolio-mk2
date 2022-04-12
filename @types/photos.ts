@@ -1,3 +1,10 @@
+export interface Photo {
+  url: string;
+  caption: string;
+  date: string;
+  expiry: string;
+}
+
 export interface PhotoProperties {
   Image: {
     type: "files";
