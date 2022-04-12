@@ -14,14 +14,37 @@ import Image from "next/image";
 interface BlogPageProps {
   blocks: NotionBlockResponseList;
   title: string;
+  description: string;
   cover?: string;
+  url: string;
 }
 
-const BlogPage: NextPage<BlogPageProps> = ({ blocks, title, cover }) => {
+const BlogPage: NextPage<BlogPageProps> = ({
+  blocks,
+  title,
+  description,
+  cover,
+  url,
+}) => {
+  const fullUrl = `https://rida.dev${url}`;
+
   return (
     <>
       <Head>
-        <title>Rida F&apos;kih — {title}</title>
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={fullUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={cover} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={fullUrl} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={cover} />
       </Head>
       <WidthLimiter>
         <Header />
@@ -66,7 +89,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const blocks = await getBlogBlocks(blog.id);
   return {
-    props: { blocks, title: blog.title, cover: blog.cover.url },
+    props: {
+      blocks,
+      title: blog.title,
+      cover: blog.cover.url,
+      description: blog.description,
+      url: blog.url,
+    },
     revalidate: 10 * 1000,
   };
 };
