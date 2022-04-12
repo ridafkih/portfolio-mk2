@@ -1,39 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
-import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 
-import { SpotifyListeningData } from "@/@types/spotify";
 import Image from "next/image";
+import { SpotifyContext } from "@/contexts/SpotifyContext";
 
 const CurrentlyPlaying = () => {
-  const [spotifyData, setSpotifyData] = useState<SpotifyListeningData>({
-    isPlaying: false,
-  });
-
-  const fetchSpotifyData = () =>
-    axios
-      .get<SpotifyListeningData>("/api/spotify/listening")
-      .catch(() => void 0)
-      .then((response) => {
-        if (response) setSpotifyData(response.data);
-      });
-
-  useEffect(() => {
-    fetchSpotifyData();
-    const interval = setInterval(fetchSpotifyData, 10 * 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const { spotifyData } = useContext(SpotifyContext);
 
   return (
     <div
       className={`flex flex-col-reverse items-end sm:flex-row sm:items-center gap-2 ${
-        spotifyData.isPlaying ? "animate-pulse" : "opacity-75"
+        spotifyData?.isPlaying ? "animate-pulse" : "opacity-75"
       }`}
     >
-      {!spotifyData.isPlaying ? (
+      {!spotifyData?.isPlaying ? (
         <span className="text-right opacity-75 whitespace-nowrap">
           Not Listening...
         </span>
