@@ -19,6 +19,8 @@ const NotionParagraph: NotionBlockComponent<NotionBlock.PARAGRAPH> = (
         type AnnotationClassMap = { [P in keyof typeof annotations]?: string };
         const annotationClassMap: AnnotationClassMap = {
           code: "p-1 font-mono text-sm rounded-sm text-neutral-100 bg-neutral-800",
+          bold: "font-semibold",
+          italic: "italic",
         };
 
         const annotationEntries = Object.entries(annotations);
