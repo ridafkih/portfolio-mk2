@@ -1,18 +1,22 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
+import Paragraph from "@/atoms/Paragraph";
+import Heading from "@/atoms/Heading";
+import PageContainer from "@/atoms/PageContainer";
 import WidthLimiter from "@/atoms/WidthLimiter";
 import Header from "@/components/Header";
-import PageContainer from "@/atoms/PageContainer";
-import Heading from "@/atoms/Heading";
-import Paragraph from "@/atoms/Paragraph";
-import Scrawl from "@/components/Scrawl";
-
 import ScrawlSection from "@/sections/ScrawlSection";
 
-import scrawls from "@/configs/scrawls";
+import { getScrawls } from "@/utils/scrawls";
 
-const ScrawlsPage: NextPage = () => {
+import { Scrawl } from "@/@types/scrawls";
+
+interface ScrawlsPageProps {
+  scrawls: Scrawl[];
+}
+
+const ScrawlsPage: NextPage<ScrawlsPageProps> = ({ scrawls }) => {
   return (
     <>
       <Head>
@@ -35,11 +39,20 @@ const ScrawlsPage: NextPage = () => {
               </i>
             </Paragraph>
           </div>
-          <ScrawlSection />
+          <ScrawlSection scrawls={scrawls} />
         </PageContainer>
       </WidthLimiter>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const scrawls = await getScrawls();
+
+  return {
+    props: { scrawls },
+    revalidate: 5 * 1000,
+  };
 };
 
 export default ScrawlsPage;
