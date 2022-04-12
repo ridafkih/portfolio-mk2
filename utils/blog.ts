@@ -1,10 +1,9 @@
 import { BlogPost, BlogPostProperties } from "@/@types/blog";
-import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
 import { Client as NotionClient } from "@notionhq/client";
 import { NotionBlockResponseList } from "@/@types/notion";
 
-const { NOTION_TOKEN, NOTION_DATABASE_ID } = process.env;
+const { NOTION_TOKEN, NOTION_BLOG_DATABASE_ID } = process.env;
 
 const notion = new NotionClient({
   notionVersion: "2022-02-22",
@@ -20,7 +19,7 @@ export const getBlogBlocks = async (
   pageId: string
 ): Promise<NotionBlockResponseList> => {
   const database = await notion.databases.query({
-    database_id: NOTION_DATABASE_ID!,
+    database_id: NOTION_BLOG_DATABASE_ID!,
   });
 
   const page = database.results.find(({ id }) => id === pageId);
@@ -40,7 +39,7 @@ export const getBlogBlocks = async (
  */
 export const getBlogList = async (): Promise<BlogPost[]> => {
   const { results } = await notion.databases.query({
-    database_id: NOTION_DATABASE_ID!,
+    database_id: NOTION_BLOG_DATABASE_ID!,
   });
 
   const pages = [];
