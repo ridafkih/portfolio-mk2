@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       cover: blog.cover.url,
       description: blog.description,
     },
-    revalidate: 10 * 1000,
+    revalidate: 240,
   };
 };
 

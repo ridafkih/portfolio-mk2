@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { photos },
-    revalidate: 5 * 1000,
+    revalidate: 60,
   };
 };
 
