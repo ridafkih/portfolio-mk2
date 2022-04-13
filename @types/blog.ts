@@ -16,7 +16,7 @@ export interface BlogPostProperties {
   "Release Date": {
     id: string;
     type: "date";
-    date: {
+    date?: {
       start: string;
       end: string | null;
     };
@@ -24,7 +24,7 @@ export interface BlogPostProperties {
   Status: {
     id: string;
     type: "select";
-    select: {
+    select?: {
       id: string;
       name: "Draft" | "Complete";
       color: string;
