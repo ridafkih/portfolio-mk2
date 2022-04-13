@@ -21,6 +21,8 @@ import { getProjectsFromGitHub } from "@/utils/projects";
 import { GitHubData } from "@/@types/github";
 import { getBlogList } from "@/utils/blog";
 import { BlogPost } from "@/@types/blog";
+import MetaData from "@/components/MetaData";
+import { getCurrentUrl } from "@/utils/url";
 
 interface HomeProps {
   gitHubData: GitHubData[];
@@ -28,8 +30,11 @@ interface HomeProps {
 }
 
 const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
+  const router = useRouter();
+
   return (
     <>
+      <MetaData currentUrl={getCurrentUrl(router.asPath)} />
       <WidthLimiter>
         <Handlebars email="hello@rida.dev" />
         <Header />

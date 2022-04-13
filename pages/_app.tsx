@@ -22,7 +22,6 @@ const MyApp: React.VFC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <SpotifyProvider>
-        <MetaData currentUrl={getCurrentUrl(router.asPath)} />
         <Component {...pageProps} />
       </SpotifyProvider>
     </>

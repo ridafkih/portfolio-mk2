@@ -2,7 +2,6 @@ import React from "react";
 
 import CurrentlyPlaying from "@/components/CurrentlyPlaying";
 import Navigation from "@/atoms/Navigation";
-import { SpotifyProvider } from "@/contexts/SpotifyContext";
 
 const navItems = [
   {
