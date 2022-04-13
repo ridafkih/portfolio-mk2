@@ -45,7 +45,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ blogs }) => {
 
 export const getStaticProps = async () => {
   const blogs = await getBlogList();
-  return { props: { blogs } };
+  return { props: { blogs }, revalidate: 240 };
 };
 
 export default BlogPage;

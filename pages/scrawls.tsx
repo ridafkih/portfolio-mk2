@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { scrawls },
-    revalidate: 5 * 1000,
+    revalidate: 240,
   };
 };
 

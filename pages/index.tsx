@@ -56,7 +56,7 @@ export async function getStaticProps() {
 
   return {
     props: { gitHubData, blogData },
-    revalidate: 60 * 30,
+    revalidate: 240,
   };
 }
 
