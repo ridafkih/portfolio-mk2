@@ -1,6 +1,7 @@
 import { getBlogList } from "@/utils/blog";
 import fs from "fs";
 import { GetServerSideProps } from "next";
+import path from "path";
 
 const Sitemap = () => {};
 
@@ -12,8 +13,9 @@ export const getServerSideProps: GetServerSideProps<any> = async ({ res }) => {
 
   const basePaths = [{ path: "", lastEdited: null }];
   const pagePaths = fs
-    .readdirSync("pages")
+    .readdirSync(path.join(process.cwd(), "pages"))
     .map((path) => ({ path, lastEdited: null }));
+
   const blogPostPaths = blogs.map(({ url, lastEdited }) => ({
     path: url.substring(1),
     lastEdited,
