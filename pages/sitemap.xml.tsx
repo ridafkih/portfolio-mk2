@@ -3,8 +3,13 @@ import { GetServerSideProps } from "next";
 
 const Sitemap = () => {};
 
-export const getServerSideProps: GetServerSideProps<any> = async ({ res }) => {
-  const { VERCEL_URL, VERCEL_ENV } = process.env;
+export const getServerSideProps: GetServerSideProps = async ({
+  res,
+  req: {
+    headers: { host },
+  },
+}) => {
+  const { VERCEL_ENV } = process.env;
   const protocol = VERCEL_ENV === "development" ? "http" : "https";
 
   const blogs = await getBlogList();
@@ -24,7 +29,7 @@ export const getServerSideProps: GetServerSideProps<any> = async ({ res }) => {
 
   const staticPages = [...basePaths, ...pagePaths, ...blogPostPaths].map(
     ({ path, lastEdited }) => ({
-      url: `${protocol}://${VERCEL_URL}/${path}`.replace(/\.tsx/g, ""),
+      url: `${protocol}://${host}/${path}`.replace(/\.tsx/g, ""),
       lastEdited,
     })
   );
