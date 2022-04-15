@@ -4,11 +4,17 @@ import React from "react";
 const Analytics: React.VFC = () => {
   return (
     <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-P93BX55QZ1"
+        strategy="afterInteractive"
+      />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
-          window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-          ga('create', 'G-P93BX55QZ1', 'auto');
-          ga('send', 'pageview');
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){window.dataLayer.push(arguments);}
+					gtag('js', new Date());
+
+					gtag('config', 'G-P93BX55QZ1');
         `}
       </Script>
       <Script id="twitter-analytics" strategy="afterInteractive">
