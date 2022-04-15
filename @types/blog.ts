@@ -10,6 +10,7 @@ export interface BlogPost {
   title: string;
   description: string;
   url: string;
+  lastEdited: string;
 }
 
 export interface BlogPostProperties {

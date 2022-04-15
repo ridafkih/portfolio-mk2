@@ -71,6 +71,7 @@ export const getBlogList = async (): Promise<BlogPost[]> => {
       title: properties.Name.title[0]?.plain_text || "Unknown Title",
       description: properties.Description.rich_text[0].plain_text,
       url: `/blog${new URL(page.url).pathname}`.toLowerCase(),
+      lastEdited: page.last_edited_time,
     });
   }
 
