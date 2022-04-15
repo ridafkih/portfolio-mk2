@@ -5,18 +5,17 @@ const Sitemap = () => {};
 
 export const getServerSideProps: GetServerSideProps = async ({
   res,
-  req: {
-    headers: { host },
-  },
+  req: { headers },
 }) => {
-  const { VERCEL_ENV } = process.env;
+  const { VERCEL_ENV, VERCEL_URL } = process.env;
+
+  const host = VERCEL_ENV === "development" ? VERCEL_URL : headers.host;
   const protocol = VERCEL_ENV === "development" ? "http" : "https";
 
   const blogs = await getBlogList();
 
   const basePaths = [{ path: "", lastEdited: null }];
   const pagePaths = [
-    { path: "", lastEdited: null },
     { path: "photos", lastEdited: null },
     { path: "scrawls", lastEdited: null },
     { path: "blog", lastEdited: null },
