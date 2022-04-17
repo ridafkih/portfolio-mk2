@@ -4,9 +4,11 @@ import Link from "next/link";
 import Heading from "@/atoms/Heading";
 import Paragraph from "@/atoms/Paragraph";
 import Section from "@/atoms/Section";
+import TwitterCount from "@/components/TwitterCount";
 
 const IntroSection: React.VFC = () => (
   <Section>
+    <TwitterCount />
     <Heading type="h1">Hello, I&apos;m Rida F&apos;kih 👋</Heading>
     <Paragraph weight="light">
       I&apos;m a Canadian software developer based in Calgary, Alta., I learned
