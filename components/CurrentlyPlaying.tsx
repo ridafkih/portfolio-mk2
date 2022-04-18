@@ -17,8 +17,8 @@ const CurrentlyPlaying = () => {
       }`}
     >
       {!spotifyData?.isPlaying ? (
-        <span className="text-right opacity-75 whitespace-nowrap">
-          Not Listening...
+        <span className="text-sm text-right opacity-75 whitespace-nowrap">
+          Not Currently Listening
         </span>
       ) : (
         <Link href={spotifyData.link!} passHref replace={false}>
@@ -38,8 +38,11 @@ const CurrentlyPlaying = () => {
                   />
                 </div>
               )}
-              <span className="max-w-[16ch] md:max-w-none text-right cursor-alias">
-                {spotifyData.name} by {spotifyData.artists}
+              <span className="max-w-[16ch] flex flex-col md:max-w-none text-right cursor-alias">
+                <span className="text-sm">{spotifyData.name}</span>
+                <span className="text-xs text-neutral-400">
+                  by {spotifyData.artists}
+                </span>
               </span>
             </div>
           </a>
