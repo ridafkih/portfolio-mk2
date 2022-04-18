@@ -28,11 +28,11 @@ const CurrentlyPlaying = () => {
           >
             <div className="flex flex-row-reverse items-start gap-2 sm:items-center sm:flex-row-reverse">
               {spotifyData.image?.url && (
-                <div className="min-h-[1em] min-w-[1em] mt-1 sm:mt-0 flex sm:items-center">
+                <div className="min-h-[2rem] min-w-[2rem] mt-1 sm:mt-0 flex sm:items-center">
                   <Image
                     className="rounded"
-                    width={18}
-                    height={18}
+                    width={32}
+                    height={32}
                     src={spotifyData.image.url}
                     alt={`${spotifyData.name} by ${spotifyData.artists} album cover.`}
                   />
