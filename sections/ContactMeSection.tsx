@@ -5,7 +5,11 @@ import Section from "@/atoms/Section";
 import DynamicGradient from "@/components/DynamicGradient";
 import Paragraph from "@/atoms/Paragraph";
 
-const ContactMeSection: React.VFC = () => {
+interface ContactMeSectionProps {
+  email: string;
+}
+
+const ContactMeSection: React.VFC<ContactMeSectionProps> = ({ email }) => {
   return (
     <Section label="Have a challenge for me?">
       <div className="relative h-[75vh] flex flex-col items-center justify-center text-center">
@@ -15,8 +19,8 @@ const ContactMeSection: React.VFC = () => {
           I occasionally take on new opportunities.
         </Paragraph>
         <Paragraph characterLimit={48}>
-          <Link href="/contact">Get in touch</Link> and I&apos;d love to hear
-          about yours.
+          <Link href={`mailto:${email}`}>Get in touch</Link> and I&apos;d love
+          to hear about yours.
         </Paragraph>
       </div>
     </Section>
