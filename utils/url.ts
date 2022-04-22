@@ -4,7 +4,7 @@
  * @returns The full URL.
  */
 export const getCurrentUrl = (pathname: string = "/") => {
-  const url = process.env.VERCEL_URL;
+  const url = process.env.VERCEL_URL || "rida.dev";
   const environment = process.env.VERCEL_ENV;
 
   const protocol = environment === "development" ? "http" : "https";
