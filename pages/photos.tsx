@@ -1,18 +1,33 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
-import WidthLimiter from "@/components/WidthLimiter";
+import Heading from "@/atoms/Heading";
+import Paragraph from "@/atoms/Paragraph";
+import WidthLimiter from "@/atoms/WidthLimiter";
+import PageContainer from "@/atoms/PageContainer";
 import Header from "@/components/Header";
-import PageContainer from "@/components/PageContainer";
-import Heading from "@/components/Heading";
-import Paragraph from "@/components/Paragraph";
+import PhotosList from "@/components/PhotosList";
 
-const PhotosPage: NextPage = () => {
+import { getPhotos } from "@/utils/photos";
+
+import { Photo } from "@/@types/photos";
+import MetaData from "@/components/MetaData";
+import { useRouter } from "next/router";
+import { getCurrentUrl } from "@/utils/url";
+
+interface PhotosPageProps {
+  photos: Photo[];
+}
+
+const PhotosPage: NextPage<PhotosPageProps> = ({ photos }) => {
+  const router = useRouter();
+
   return (
     <>
-      <Head>
-        <title>Rida F&apos;kih — Photos</title>
-      </Head>
+      <MetaData
+        title="Rida F'kih — Photos"
+        currentUrl={getCurrentUrl(router.asPath)}
+      />
       <WidthLimiter>
         <Header />
         <PageContainer>
@@ -22,10 +37,20 @@ const PhotosPage: NextPage = () => {
               Get a glimpse into my daily life with one photo every day.
             </Paragraph>
           </div>
+          <PhotosList photos={photos} />
         </PageContainer>
       </WidthLimiter>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const photos = await getPhotos();
+
+  return {
+    props: { photos },
+    revalidate: 240,
+  };
 };
 
 export default PhotosPage;

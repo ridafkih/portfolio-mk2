@@ -1,7 +1,7 @@
 import React from "react";
 
 import BigProject from "@/components/BigProject";
-import Section from "@/components/Section";
+import Section from "@/atoms/Section";
 
 const BigProjectsSection: React.VFC = () => {
   return (

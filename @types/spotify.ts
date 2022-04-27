@@ -1,4 +1,4 @@
-export default interface SpotifyListeningData {
+export interface SpotifyListeningData {
   name?: string;
   image?: {
     height?: number;

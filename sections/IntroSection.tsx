@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import Heading from "@/components/Heading";
-import Paragraph from "@/components/Paragraph";
-import Section from "@/components/Section";
+import Heading from "@/atoms/Heading";
+import Paragraph from "@/atoms/Paragraph";
+import Section from "@/atoms/Section";
 
 const IntroSection: React.VFC = () => (
   <Section>

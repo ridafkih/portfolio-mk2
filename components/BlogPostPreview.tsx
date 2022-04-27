@@ -1,26 +1,29 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 
-import Heading from "@/components/Heading";
-import Paragraph from "@/components/Paragraph";
+import Heading from "@/atoms/Heading";
+import Paragraph from "@/atoms/Paragraph";
 
-interface BlogPostProps {
-  title: string;
-  description: string;
-  date: Date;
-}
+import { BlogPost } from "@/@types/blog";
 
-const BlogPost: React.VFC<BlogPostProps> = ({ title, description, date }) => {
+const BlogPostPreview: React.VFC<BlogPost> = ({
+  title,
+  description,
+  created,
+  url,
+}) => {
   const { current: loadedDate } = useRef<Date>(new Date());
 
   const getDaysBetweenDates = () => {
-    const timeDifference = Math.abs(loadedDate.getTime() - date.getTime());
+    const timeDifference = Math.abs(
+      loadedDate.getTime() - new Date(created).getTime()
+    );
     return Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
   };
 
   return (
-    <Link href="/blog" passHref>
-      <a className="relative block font-light transition-transform after:bg-transparent hover:-translate-y-1">
+    <Link href={url} passHref>
+      <a className="relative block font-light transition-transform cursor-pointer after:bg-transparent hover:-translate-y-1">
         <div className="flex items-center p-6 border rounded-md sm:-mx-6 border-neutral-300 dark:border-neutral-700">
           <div className="space-y-2">
             <Heading type="h3">{title}</Heading>
@@ -38,4 +41,4 @@ const BlogPost: React.VFC<BlogPostProps> = ({ title, description, date }) => {
   );
 };
 
-export default BlogPost;
+export default BlogPostPreview;

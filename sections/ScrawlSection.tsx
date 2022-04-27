@@ -1,23 +1,28 @@
 import React from "react";
 
-import scrawls from "@/configs/scrawls";
-import Scrawl from "@/components/Scrawl";
+import ScrawlText from "@/components/ScrawlText";
 
-const ScrawlSection: React.VFC = () => {
-  const getKey = (content: string, date: Date) =>
-    `${content}:${date.getTime()}`;
+import { Scrawl } from "@/@types/scrawls";
+
+interface ScrawlSectionProps {
+  scrawls: Scrawl[];
+}
+
+const ScrawlSection: React.VFC<ScrawlSectionProps> = ({ scrawls }) => {
+  const getKey = (content: string, date: string) =>
+    `${content}:${new Date(date).getTime()}`;
 
   return (
     <ul className="space-y-4">
-      {scrawls.map(({ content, sentimentEmoji, date }) => {
+      {scrawls.map(({ text, emoji, date }) => {
         return (
-          <Scrawl
-            key={getKey(content, date)}
-            date={date}
-            sentimentEmoji={sentimentEmoji}
+          <ScrawlText
+            key={getKey(text, date)}
+            date={new Date(date)}
+            sentimentEmoji={emoji}
           >
-            {content}
-          </Scrawl>
+            {text}
+          </ScrawlText>
         );
       })}
     </ul>

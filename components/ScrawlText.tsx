@@ -1,13 +1,17 @@
 import React from "react";
 
-import Paragraph from "@/components/Paragraph";
+import Paragraph from "@/atoms/Paragraph";
 
-interface ScrawlProps {
+interface ScrawlTextProps {
   sentimentEmoji: string;
   date: Date;
 }
 
-const Scrawl: React.FC<ScrawlProps> = ({ children, sentimentEmoji, date }) => {
+const ScrawlText: React.FC<ScrawlTextProps> = ({
+  children,
+  sentimentEmoji,
+  date,
+}) => {
   const getParsedDate = () =>
     date.toLocaleDateString("en-US", {
       month: "long",
@@ -34,4 +38,4 @@ const Scrawl: React.FC<ScrawlProps> = ({ children, sentimentEmoji, date }) => {
   );
 };
 
-export default Scrawl;
+export default ScrawlText;

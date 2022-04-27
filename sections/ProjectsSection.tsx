@@ -1,9 +1,9 @@
 import React from "react";
 
-import Section from "@/components/Section";
+import Section from "@/atoms/Section";
 import Project from "@/components/Project";
 
-import GitHubData from "@/@types/GitHubData";
+import { GitHubData } from "@/@types/github";
 
 interface ProjectsProps {
   gitHubData: GitHubData[];

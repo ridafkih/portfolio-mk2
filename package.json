@@ -1,8 +1,9 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "1.1.2",
   "private": true,
   "scripts": {
+    "preview": "vercel dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -13,19 +14,23 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@notionhq/client": "^1.0.4",
     "@radix-ui/react-icons": "^1.1.0",
     "@supabase/supabase-js": "^1.33.3",
     "axios": "^0.26.1",
     "jsdom": "^19.0.0",
     "next": "12.1.4",
+    "prismjs": "^1.27.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "spotify-web-api-node": "^5.0.2"
+    "spotify-web-api-node": "^5.0.2",
+    "next-use-posthog": "^1.16.0"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.3.1",
     "@types/jsdom": "^16.2.14",
     "@types/node": "17.0.23",
+    "@types/prismjs": "^1.26.0",
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
     "@types/spotify-web-api-node": "^5.0.7",
@@ -34,6 +39,7 @@
     "eslint-config-next": "12.1.4",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.23",
-    "typescript": "4.6.3"
+    "typescript": "4.6.3",
+    "vercel": "^24.1.0"
   }
 }

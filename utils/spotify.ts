@@ -1,4 +1,4 @@
-import SpotifyListeningData from "@/@types/SpotifyListeningData";
+import { SpotifyListeningData } from "@/@types/spotify";
 
 import SpotifyWebApi from "spotify-web-api-node";
 

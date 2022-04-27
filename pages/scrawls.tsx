@@ -1,23 +1,33 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
-import WidthLimiter from "@/components/WidthLimiter";
+import Paragraph from "@/atoms/Paragraph";
+import Heading from "@/atoms/Heading";
+import PageContainer from "@/atoms/PageContainer";
+import WidthLimiter from "@/atoms/WidthLimiter";
 import Header from "@/components/Header";
-import PageContainer from "@/components/PageContainer";
-import Heading from "@/components/Heading";
-import Paragraph from "@/components/Paragraph";
-import Scrawl from "@/components/Scrawl";
-
 import ScrawlSection from "@/sections/ScrawlSection";
 
-import scrawls from "@/configs/scrawls";
+import { getScrawls } from "@/utils/scrawls";
 
-const ScrawlsPage: NextPage = () => {
+import { Scrawl } from "@/@types/scrawls";
+import MetaData from "@/components/MetaData";
+import { getCurrentUrl } from "@/utils/url";
+import { useRouter } from "next/router";
+
+interface ScrawlsPageProps {
+  scrawls: Scrawl[];
+}
+
+const ScrawlsPage: NextPage<ScrawlsPageProps> = ({ scrawls }) => {
+  const router = useRouter();
+
   return (
     <>
-      <Head>
-        <title>Rida F&apos;kih — Scrawls</title>
-      </Head>
+      <MetaData
+        title="Rida F'kih — Scrawls"
+        currentUrl={getCurrentUrl(router.asPath)}
+      />
       <WidthLimiter>
         <Header />
         <PageContainer>
@@ -35,11 +45,20 @@ const ScrawlsPage: NextPage = () => {
               </i>
             </Paragraph>
           </div>
-          <ScrawlSection />
+          <ScrawlSection scrawls={scrawls} />
         </PageContainer>
       </WidthLimiter>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const scrawls = await getScrawls();
+
+  return {
+    props: { scrawls },
+    revalidate: 240,
+  };
 };
 
 export default ScrawlsPage;

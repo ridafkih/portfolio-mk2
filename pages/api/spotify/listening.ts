@@ -1,12 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import SpotifyListeningData from "@/@types/SpotifyListeningData";
+import { SpotifyListeningData } from "@/@types/spotify";
+
 import {
   getSpotifyListeningData,
   refreshSpotifyAccessToken,
 } from "@/utils/spotify";
 
 import { createClient } from "@supabase/supabase-js";
+
 const databaseClient = createClient(
   process.env.SUPABASE_URL!,
   process.env.SUPABASE_ANON_KEY!
@@ -41,8 +43,7 @@ const handler = async (
     !spotifyKey.refresh_token ||
     !spotifyKey.access_token ||
     !spotifyKey.expires_in ||
-    !spotifyKey.created_at ||
-    !spotifyKey.code
+    !spotifyKey.created_at
   )
     return response.json({ isPlaying: false });
 
@@ -50,8 +51,11 @@ const handler = async (
     spotifyKey = await refreshSpotifyAccessToken(spotifyKey.refresh_token);
   }
 
-  if (!spotifyKey.access_token || !spotifyKey.code)
-    return response.json({ isPlaying: false });
+  if (!spotifyKey.access_token) return response.json({ isPlaying: false });
+  else
+    databaseClient.from<SpotifyKeysDatabaseProps>("spotify-keys").insert({
+      ...spotifyKey,
+    });
 
   const spotifyListeningData = await getSpotifyListeningData(
     spotifyKey.access_token

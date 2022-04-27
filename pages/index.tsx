@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
-import Head from "next/head";
+import { useRouter } from "next/router";
+
+import PageContainer from "@/atoms/PageContainer";
+import WidthLimiter from "@/atoms/WidthLimiter";
 
 import Handlebars from "@/components/Handlebars";
-import PageContainer from "@/components/PageContainer";
 import Header from "@/components/Header";
-import WidthLimiter from "@/components/WidthLimiter";
 
 import MyOpportunitiesSection from "@/sections/MyOpportunitiesSection";
 import AboutMyselfSection from "@/sections/AboutMyselfSection";
@@ -17,30 +18,35 @@ import BigProjectsSection from "@/sections/BigProjectsSection";
 
 import { getProjectsFromGitHub } from "@/utils/projects";
 
-import GitHubData from "@/@types/GitHubData";
+import { GitHubData } from "@/@types/github";
+import { getBlogList } from "@/utils/blog";
+import { BlogPost } from "@/@types/blog";
+import MetaData from "@/components/MetaData";
+import { getCurrentUrl } from "@/utils/url";
 
 interface HomeProps {
   gitHubData: GitHubData[];
+  blogData: BlogPost[];
 }
 
-const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
+const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
+  const router = useRouter();
+
   return (
     <>
-      <Head>
-        <title>Rida F&apos;kih — Software Developer Portfolio</title>
-      </Head>
+      <MetaData currentUrl={getCurrentUrl(router.asPath)} />
       <WidthLimiter>
         <Handlebars email="hello@rida.dev" />
         <Header />
         <PageContainer>
           <IntroSection />
           <AboutMyselfSection />
+          <BlogPreviewSection blogs={blogData.slice(0, 3)} />
+          <TechnologiesSection />
           <MyOpportunitiesSection />
-          <BlogPreviewSection />
           <ProjectsSection gitHubData={gitHubData} />
           <BigProjectsSection />
-          <TechnologiesSection />
-          <ContactMeSection />
+          <ContactMeSection email="hello@rida.dev" />
         </PageContainer>
       </WidthLimiter>
     </>
@@ -48,11 +54,14 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData }) => {
 };
 
 export async function getStaticProps() {
-  const gitHubData = await getProjectsFromGitHub("ridafkih");
+  const [gitHubData, blogData] = await Promise.all([
+    getProjectsFromGitHub("ridafkih"),
+    getBlogList(),
+  ]);
 
   return {
-    props: { gitHubData },
-    revalidate: 60 * 30,
+    props: { gitHubData, blogData },
+    revalidate: 240,
   };
 }
 
