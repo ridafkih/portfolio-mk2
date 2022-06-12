@@ -12,14 +12,6 @@ const navItems = [
     name: "Blog",
     path: "/blog",
   },
-  {
-    name: "Photos",
-    path: "/photos",
-  },
-  {
-    name: "Scrawls",
-    path: "/scrawls",
-  },
 ];
 
 const Header: React.VFC = () => {

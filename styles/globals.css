@@ -31,9 +31,8 @@
     @apply relative font-semibold cursor-alias;
   }
 
-  a::after {
-    content: "";
-
-    @apply absolute inset-0 top-[unset] translate-y-full h-[1px] m-auto bg-neutral-900 dark:bg-neutral-50;
+  p a,
+  a.force-underline {
+    @apply underline underline-offset-4 decoration-neutral-900 dark:decoration-neutral-50;
   }
 }
