@@ -16,8 +16,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const basePaths = [{ path: "", lastEdited: null }];
   const pagePaths = [
-    { path: "photos", lastEdited: null },
-    { path: "scrawls", lastEdited: null },
     { path: "blog", lastEdited: null },
   ];
 
