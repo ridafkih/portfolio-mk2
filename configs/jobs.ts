@@ -4,7 +4,7 @@ const jobs = [
     jobDescription:
       "Reverse-engineering client & network fingerprinting to build out bank connectors.",
     jobStart: new Date(2021, 11),
-    jobTitle: "Financial API Developer 💰",
+    jobTitle: "Senior Financial API Developer 💰",
   },
   {
     companyName: "Jumbleberry",
