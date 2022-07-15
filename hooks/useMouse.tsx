@@ -5,8 +5,10 @@ type MouseHoverEvent = MouseEvent & { path: HTMLCollection };
 
 const clickableElements = ["BUTTON", "A"];
 
-const containsClickableElement = ({ tagName }: Element) =>
-  clickableElements.includes(tagName);
+const containsClickableElement = (target: EventTarget) => {
+  if (target instanceof HTMLElement)
+    return clickableElements.includes(target.tagName);
+};
 
 export const useMouse = () => {
   const [isClicking, setClicking] = useState<boolean>(false);
@@ -21,7 +23,7 @@ export const useMouse = () => {
   useEffect(() => {
     const handleMouseDown = () => setClicking(true);
     const handleMouseUp = () => setClicking(false);
-    
+
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
 
@@ -32,16 +34,12 @@ export const useMouse = () => {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (({
-      clientX: x,
-      clientY: y,
-      path,
-    }: MouseHoverEvent) => {
-      const pathArray = Array.from(path);
+    const handleMouseMove = ((event: MouseHoverEvent) => {
+      const pathArray = Array.from(event.composedPath());
       const pathContainsClickable = pathArray.some(containsClickableElement);
 
       setCanClick(pathContainsClickable);
-      setPosition({ x, y });
+      setPosition({ x: event.clientX, y: event.clientY });
     }) as (event: MouseEvent) => void;
 
     window.addEventListener("mousemove", handleMouseMove);
