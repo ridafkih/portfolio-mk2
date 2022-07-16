@@ -1,11 +1,11 @@
-import { Coordinates } from "@/@types/position";
-import { useMouse } from "@/hooks/useMouse";
 import React, { useEffect, useRef, useState } from "react";
+import { Coordinates } from "@/@types/position";
+import { useMouse } from "@/hooks/mouse-state";
 
 const CURSOR_SPEED = 0.05;
 
 const Cursor = () => {
-  const { position, canClick, isClicking, hasPointer } = useMouse();
+  const { position, canClick, pressed, pointerType } = useMouse();
 
   const cursorTimeout = useRef<ReturnType<typeof setTimeout>>();
 
@@ -18,10 +18,10 @@ const Cursor = () => {
   });
 
   useEffect(() => {
-    if (isClicking) return setCursorScale(0.75);
+    if (pressed) return setCursorScale(0.75);
     if (canClick) return setCursorScale(1.25);
     setCursorScale(1);
-  }, [canClick, isClicking]);
+  }, [canClick, pressed]);
 
   useEffect(() => {
     let frame: number;
@@ -59,15 +59,15 @@ const Cursor = () => {
     if (timeout) clearTimeout(timeout);
     setCursorOpacity(0.75);
     cursorTimeout.current = setTimeout(() => setCursorOpacity(0), 500);
-  }, [cursorPosition, cursorTimeout, canClick, isClicking]);
+  }, [cursorPosition, cursorTimeout, canClick, pressed]);
 
-  if (!hasPointer) return <></>;
+  if (pointerType === "mobile") return <></>;
 
   return (
     <div
       style={{
         transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-        opacity: (canClick || isClicking) ? 1 : cursorOpacity,
+        opacity: (canClick || pressed) ? 1 : cursorOpacity,
       }}
       className="fixed z-50 hidden transition-opacity duration-500 pointer-events-none sm:block"
     >

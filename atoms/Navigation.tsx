@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import usePlink from "@/hooks/usePlink";
+import { usePlink } from "@/hooks/sound-effects";
 
 interface NavItem {
   name: string;

@@ -6,7 +6,7 @@ const PLINK_SOUND = "/plink.wav";
  * Hook to interface with the good ol' plink.
  * @returns
  */
-const usePlink = () => {
+export const usePlink = () => {
   const [sound, setSound] = useState<HTMLAudioElement>();
   useEffect(() => {
     const plink = new window.Audio(PLINK_SOUND);
@@ -21,5 +21,3 @@ const usePlink = () => {
   const play = () => sound?.play();
   return { play };
 };
-
-export default usePlink;
