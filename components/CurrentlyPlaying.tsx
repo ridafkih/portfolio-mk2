@@ -30,7 +30,7 @@ const CurrentlyPlaying = () => {
               {spotifyData.image?.url && (
                 <div className="min-h-[2rem] min-w-[2rem] mt-1 sm:mt-0 flex sm:items-center">
                   <Image
-                    className="rounded"
+                    className="w-8 rounded aspect-square"
                     width={32}
                     height={32}
                     src={spotifyData.image.url}
