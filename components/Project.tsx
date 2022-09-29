@@ -12,18 +12,20 @@ interface ProjectProps {
 }
 
 const Project: React.VFC<ProjectProps> = ({ name, stars, description }) => (
-  <li className="space-y-2">
-    <div className="flex items-center gap-2">
-      <Heading type="h3">{name}</Heading>
-      {stars && (
-        <div className="flex items-center gap-1">
-          <StarFilledIcon className="text-yellow-400" />
-          <span>{stars.toString()}</span>
-        </div>
-      )}
-    </div>
-    <Paragraph weight="light">{description}</Paragraph>
-  </li>
+  <a target="_blank" href={`https://github.com/ridafkih/${name}`} rel="noreferrer">
+    <li className="space-y-2">
+      <div className="flex items-center gap-2">
+        <Heading type="h3">{name}</Heading>
+        {stars && (
+          <div className="flex items-center gap-1">
+            <StarFilledIcon className="text-yellow-400" />
+            <span>{stars.toString()}</span>
+          </div>
+        )}
+      </div>
+      <Paragraph weight="light">{description}</Paragraph>
+    </li>
+  </a>
 );
 
 export default Project;
