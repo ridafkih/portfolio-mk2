@@ -41,11 +41,11 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
         <PageContainer>
           <IntroSection />
           <AboutMyselfSection />
-          <BlogPreviewSection blogs={blogData.slice(0, 3)} />
           <TechnologiesSection />
           <MyOpportunitiesSection />
           <ProjectsSection gitHubData={gitHubData} />
           <BigProjectsSection />
+          <BlogPreviewSection blogs={blogData.slice(0, 3)} />
           <ContactMeSection email="hello@rida.dev" />
         </PageContainer>
       </WidthLimiter>
