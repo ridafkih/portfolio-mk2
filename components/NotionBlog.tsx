@@ -13,6 +13,7 @@ import {
   NotionHeading2,
   NotionHeading3,
 } from "@/components/NotionHeading";
+import NotionImage from "@/components/NotionImage";
 
 const { NotionRenderer } = makeNotionRenderer({
   heading_1: NotionHeading1,
@@ -22,6 +23,7 @@ const { NotionRenderer } = makeNotionRenderer({
   paragraph: NotionParagraph,
   numbered_list_item: NotionNumberedList,
   code: NotionCodeBlock,
+  image: NotionImage
 });
 
 interface NotionBlogProps {
