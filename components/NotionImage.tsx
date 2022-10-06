@@ -4,7 +4,7 @@ import Image from 'next/image';
 const NotionImage: NotionBlockComponent<NotionBlock.IMAGE> = ({ image }) => {
   if (image.type === "file") return <></>;
   return (
-    <div className="w-full">
+    <div className="relative w-full">
       <Image objectFit="cover" src={image.external.url} alt=""></Image>
     </div>
   )
