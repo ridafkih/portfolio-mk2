@@ -13,6 +13,7 @@ import Image from "next/image";
 import MetaData from "@/components/MetaData";
 import { useRouter } from "next/router";
 import { getCurrentUrl } from "@/utils/url";
+import Handlebars from "@/components/Handlebars";
 
 interface BlogPageProps {
   blocks: NotionBlockResponseList;
@@ -38,6 +39,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
         bannerUrl={cover}
       />
       <WidthLimiter>
+        <Handlebars email="hello@rida.dev" />
         <Header />
         <PageContainer>
           <div className="pb-24 space-y-12">
