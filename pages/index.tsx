@@ -23,6 +23,7 @@ import { getBlogList } from "@/utils/blog";
 import { BlogPost } from "@/@types/blog";
 import MetaData from "@/components/MetaData";
 import { getCurrentUrl } from "@/utils/url";
+import Cursor from "@/components/Cursor";
 
 interface HomeProps {
   gitHubData: GitHubData[];
@@ -34,6 +35,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
 
   return (
     <>
+      <Cursor />
       <MetaData currentUrl={getCurrentUrl(router.asPath)} />
       <WidthLimiter>
         <Handlebars email="hello@rida.dev" />

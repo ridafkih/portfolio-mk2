@@ -13,7 +13,6 @@ const MyApp: React.VFC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Cursor />
       <SpotifyProvider>
         <Component {...pageProps} />
       </SpotifyProvider>
