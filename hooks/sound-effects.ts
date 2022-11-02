@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 
-const PLINK_SOUND = "/plink.wav";
+export enum SoundEffects {
+  PLINK = "/plink.wav",
+  POWER_UP = "/power-up.wav"
+}
 
 /**
  * Hook to interface with the good ol' plink.
  * @returns
  */
-export const usePlink = () => {
+export const useSoundEffect = (soundName: SoundEffects) => {
   const [sound, setSound] = useState<HTMLAudioElement>();
   useEffect(() => {
-    const plink = new window.Audio(PLINK_SOUND);
-    plink.volume = 0.15;
-    setSound(plink);
-  }, []);
+    const wav = new window.Audio(soundName);
+    wav.volume = 0.15;
+    setSound(wav);
+  }, [soundName]);
 
   /**
    * Play the plink sound.

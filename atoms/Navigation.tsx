@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { usePlink } from "@/hooks/sound-effects";
+import { SoundEffects, useSoundEffect } from "@/hooks/sound-effects";
 
 interface NavItem {
   name: string;
@@ -15,7 +15,7 @@ interface NavigationProps {
 
 const Navigation: React.VFC<NavigationProps> = ({ items }) => {
   const router = useRouter();
-  const plink = usePlink();
+  const plink = useSoundEffect(SoundEffects.PLINK);
 
   const handleClick = () => plink.play();
 
