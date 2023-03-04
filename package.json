@@ -19,10 +19,11 @@
     "@supabase/supabase-js": "^1.33.3",
     "axios": "^0.26.1",
     "jsdom": "^19.0.0",
+    "mapkit-react": "^1.4.0",
     "next": "12.1.4",
     "prismjs": "^1.27.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-dom-confetti": "^0.2.0",
     "spotify-web-api-node": "^5.0.2"
   },

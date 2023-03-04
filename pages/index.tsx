@@ -24,6 +24,8 @@ import { BlogPost } from "@/@types/blog";
 import MetaData from "@/components/MetaData";
 import { getCurrentUrl } from "@/utils/url";
 import Cursor from "@/components/Cursor";
+import { Map } from "react-mapkit";
+import MapSection from "@/sections/MapSection";
 
 interface HomeProps {
   gitHubData: GitHubData[];
@@ -41,6 +43,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
         <Handlebars email="hello@rida.dev" />
         <Header />
         <PageContainer>
+          <MapSection />
           <IntroSection />
           <AboutMyselfSection />
           <TechnologiesSection />
