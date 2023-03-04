@@ -3,7 +3,7 @@ import { ColorScheme, Map, MapType, Marker } from "mapkit-react";
 import { usePreferredTheme } from "@/hooks/preferred-theme";
 import Heading from "@/atoms/Heading";
 
-const token = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRZQjczWTVLTVAifQ.eyJpc3MiOiJIUUxNOFBIV0NNIiwiaWF0IjoxNjc3OTUzMTYxLCJleHAiOjE3MDk1MTA0MDB9.BBKJ51SJZSFNo-7ayP1tLV5uRNPrECXblznrkSq3CUsEyuQwb2ZnDsl5Jx6yxP_h2oaDaVceOKRBUsj6g_ZiIg";
+const token = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRZQjczWTVLTVAifQ.eyJpc3MiOiJIUUxNOFBIV0NNIiwiaWF0IjoxNjc3OTUyODA2LCJleHAiOjE3MDk1MTA0MDAsIm9yaWdpbiI6Imh0dHBzOi8vcmlkYS5kZXYvIn0.38S1YD-xy4ipubMoNtXLT4FeU6FH2FDpyqO24sgNCFJubHsMy_BkIc_iG_EaIYmfaZ5MriQ9fe0miTuc8y7vsw";
 
 const MapSection: React.VFC = () => {
   const [mapTransform, setMapTransform] = useState<string>("rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(0.75)");
