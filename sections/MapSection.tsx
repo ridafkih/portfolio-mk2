@@ -17,7 +17,7 @@ const MapSection: React.VFC = () => {
 
   useEffect(() => {
     if (location)
-      setMapTransform("rotateX(64deg) rotateY(0deg) rotateZ(16deg) scale(0.9)");
+      setMapTransform("rotateX(50deg) rotateY(0deg) rotateZ(16deg) scale(0.9)");
     else
       fetch("/api/location")
         .then((response) => response.json() as Promise<LocationInformation>)
