@@ -5,7 +5,7 @@ import Heading from "@/atoms/Heading";
 import { LocationInformation } from "@/@types/location";
 
 const token =
-  "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRZQjczWTVLTVAifQ.eyJpc3MiOiJIUUxNOFBIV0NNIiwiaWF0IjoxNjc3OTUyODA2LCJleHAiOjE3MDk1MTA0MDAsIm9yaWdpbiI6Imh0dHBzOi8vcmlkYS5kZXYvIn0.38S1YD-xy4ipubMoNtXLT4FeU6FH2FDpyqO24sgNCFJubHsMy_BkIc_iG_EaIYmfaZ5MriQ9fe0miTuc8y7vsw";
+  "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRZQjczWTVLTVAifQ.eyJpc3MiOiJIUUxNOFBIV0NNNFlCNzNZNUtNUCIsImlhdCI6MTY3ODA1NjU4NSwiZXhwIjoxNzA5NTk2ODAwLCJvcmlnaW4iOiJodHRwczovL3d3dy5yaWRhLmRldiJ9.fZAYa9gsiM9AyyFpZ3cirBxIieg-RwnDuR7eIJl1SoY0bBQcIP8vDHpwWh_7BoLctp_-17zraSVb2DIQuFBbzA";
 
 const MapSection: React.VFC = () => {
   const [location, setLocation] = useState<LocationInformation>();
