@@ -27,9 +27,10 @@ const MapSection: React.VFC = () => {
   return (
     <div className="flex flex-col gap-2">
       <div
-        className="relative flex items-center justify-center w-full overflow-hidden rounded-lg h-44"
+        className="relative flex items-center justify-center w-full overflow-hidden border border-solid rounded-lg h-44 border-neutral-300 dark:border-neutral-700"
         style={{ perspective: "2000px", transformStyle: "preserve-3d" }}
       >
+        <div className="absolute inset-0 z-30 opacity-30 dark:opacity-50 bg-gradient-to-tr from-transparent to-neutral-200 dark:to-neutral-800" />
         <div
           className="absolute z-20 w-[1200px] h-[1200px] transition-transform delay-1000 duration-1000"
           style={{ transform: mapTransform }}
