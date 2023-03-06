@@ -65,9 +65,9 @@ const MapSection: React.VFC = () => {
           <SewingPinFilledIcon className="dark:text-neutral-500 text-neutral-600" />
           <div className="flex items-center gap-4 flex-end">
             <p className="text-xs dark:text-neutral-500 text-neutral-600">last seen in {location?.description?.toLowerCase()}</p>
-            <div className="relative w-1 h-1">
+            <div className="relative flex items-center justify-center w-1 h-1">
               <div className="absolute inset-0 w-full h-full bg-green-500 rounded-full" />
-              <div className="absolute inset-0 w-full h-full bg-green-500 rounded-full animate-ping" />
+              <div className="absolute w-4 h-4 bg-green-500 rounded-full animate-ping" style={{ transform: "scale(0)" }} />
             </div>
           </div>
         </div>}
