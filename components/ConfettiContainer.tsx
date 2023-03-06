@@ -16,7 +16,7 @@ const ConfettiContainer: React.FC<ConfettiContainerProps> = ({ x, y, duration = 
   
   return (
     <div
-      className="fixed top-0 left-0"
+      className="fixed top-0 left-0 z-50"
       style={{ transform: `translateX(${x}px) translateY(${y}px)` }}
     >
       <Confetti
