@@ -11,7 +11,7 @@ interface MetaDataProps {
 
 const MetaData: React.VFC<MetaDataProps> = ({
   title = "Rida F'kih — Developer & Designer",
-  description = "I'm a Canadian software developer based in Calgary, Alta., I learned to code make my life a little easier. I currently work at MaxRewards as a reverse engineer & fullstack developer.",
+  description = "I'm a Canadian software developer based in Calgary, Alta. I learned to code make my life a little easier. I currently work at MaxRewards as a reverse engineer & fullstack developer.",
   bannerUrl = getCurrentUrl("/meta-preview.png"),
   currentUrl,
 }) => {
