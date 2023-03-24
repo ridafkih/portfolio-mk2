@@ -11,7 +11,7 @@ const AboutMyselfSection = () => (
       presented with a challenge I do and learn what it takes to build the
       solution. I like quick iterations and prototype-driven work. I am
       motivated by interesting projects, and I would rather get things done than
-      shave a yak.
+      shave a yak. I obsess over the developer experience.
     </Paragraph>
   </Section>
 );
