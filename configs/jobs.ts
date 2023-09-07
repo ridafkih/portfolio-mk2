@@ -3,7 +3,7 @@ const jobs = [
     companyName: "Texts",
     jobDescription:
       "Building the all-in-one chat application.",
-    jobStart: new Date(2023, 08),
+    jobStart: new Date(2023, 8),
     jobTitle: "Fullstack & Reverse Engineer 🧑‍💻",
   },
   {
