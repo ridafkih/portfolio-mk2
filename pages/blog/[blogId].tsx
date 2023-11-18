@@ -79,6 +79,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   );
 
   if (!blog) return { notFound: true };
+  if (typeof blog.movedTo === "string") return { redirect: { destination: blog.movedTo }, props: {} };
 
   const blocks = await getBlogBlocks(blog.id);
   return {
