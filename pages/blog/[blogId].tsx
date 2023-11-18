@@ -48,7 +48,8 @@ const BlogPage: NextPage<BlogPageProps> = ({
               <div className="sm:-mx-12">
                 <img
                   src={cover}
-                  className="object-cover w-full max-h-[320px] rounded-md"
+                  className="object-cover w-full h-[320px] rounded-md object-bottom"
+                  height="320"
                   alt=""
                 />
               </div>
