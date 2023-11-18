@@ -16,19 +16,19 @@ export const SpotifyProvider: React.FC = ({ children }) => {
     null
   );
 
-  // const updateSpotifyData = () =>
-  //   axios
-  //     .get<SpotifyListeningData>("/api/spotify/listening")
-  //     .catch(() => void 0)
-  //     .then((response) => {
-  //       if (response) setSpotifyData(response.data);
-  //     });
+  const updateSpotifyData = () =>
+    axios
+      .get<SpotifyListeningData>("/api/spotify/listening")
+      .catch(() => void 0)
+      .then((response) => {
+        if (response) setSpotifyData(response.data);
+      });
 
-  // useEffect(() => {
-  //   updateSpotifyData();
-  //   const interval = setInterval(updateSpotifyData, 5 * 1000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    updateSpotifyData();
+    const interval = setInterval(updateSpotifyData, 5 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const value = { spotifyData: null, updateSpotifyData: null };
 
