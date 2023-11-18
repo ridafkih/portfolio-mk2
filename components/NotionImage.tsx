@@ -1,11 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 import { NotionBlock, NotionBlockComponent } from '@/@types/notion';
-import Image from 'next/image';
 
 const NotionImage: NotionBlockComponent<NotionBlock.IMAGE> = ({ image }) => {
-  if (image.type === "file") return <></>;
   return (
-    <div className="relative w-full">
-      <Image objectFit="cover" src={image.external.url} alt=""></Image>
+    <div className="relative w-full py-4">
+      <img 
+        style={{maxWidth: '100%', height: 'auto'}}
+        src={"file" in image ? image.file.url : image.external.url} 
+        alt=""
+      />
     </div>
   )
 };

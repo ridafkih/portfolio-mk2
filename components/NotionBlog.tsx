@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 
 import { makeNotionRenderer } from "@/utils/notion";
 import { NotionBlockResponseList } from "@/@types/notion";
@@ -14,6 +13,7 @@ import {
   NotionHeading3,
 } from "@/components/NotionHeading";
 import NotionImage from "@/components/NotionImage";
+import NotionEmbed from "@/components//NotionEmbed";
 
 const { NotionRenderer } = makeNotionRenderer({
   heading_1: NotionHeading1,
@@ -23,7 +23,8 @@ const { NotionRenderer } = makeNotionRenderer({
   paragraph: NotionParagraph,
   numbered_list_item: NotionNumberedList,
   code: NotionCodeBlock,
-  image: NotionImage
+  image: NotionImage,
+  embed: NotionEmbed,
 });
 
 interface NotionBlogProps {
