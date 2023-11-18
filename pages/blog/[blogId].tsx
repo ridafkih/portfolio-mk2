@@ -15,12 +15,14 @@ import MetaData from "@/components/MetaData";
 import { useRouter } from "next/router";
 import { getCurrentUrl } from "@/utils/url";
 import Handlebars from "@/components/Handlebars";
+import { useEffect } from "react";
 
 interface BlogPageProps {
   blocks: NotionBlockResponseList;
   title: string;
   description: string;
   cover?: string;
+  movedTo?: string,
 }
 
 const BlogPage: NextPage<BlogPageProps> = ({
@@ -28,8 +30,15 @@ const BlogPage: NextPage<BlogPageProps> = ({
   title,
   description,
   cover,
+  movedTo,
 }) => {
   const router = useRouter();
+
+  //  redirect if movedTo
+  useEffect(() => {
+    if (movedTo)
+      router.push(movedTo ?? router.asPath);
+  }, [movedTo, router]);
 
   return (
     <>
@@ -79,7 +88,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   );
 
   if (!blog) return { notFound: true };
-  if (typeof blog.movedTo === "string") return { redirect: { destination: blog.movedTo }, props: {} };
 
   const blocks = await getBlogBlocks(blog.id);
   return {
@@ -88,6 +96,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       title: blog.title,
       cover: blog.cover.url,
       description: blog.description,
+      movedTo: blog.movedTo,
     },
     revalidate: 240,
   };
