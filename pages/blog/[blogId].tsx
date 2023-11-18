@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
@@ -45,11 +46,9 @@ const BlogPage: NextPage<BlogPageProps> = ({
           <div className="pb-24 space-y-12">
             {cover && (
               <div className="sm:-mx-12">
-                <Image
+                <img
                   src={cover}
-                  className="object-cover rounded-md"
-                  height="512"
-                  width="1200"
+                  className="object-cover w-full max-h-[320px] rounded-md"
                   alt=""
                 />
               </div>
