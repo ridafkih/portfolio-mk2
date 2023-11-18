@@ -21,7 +21,7 @@ const BlogListSection: React.VFC<BlogListSectionProps> = ({ blogs }) => {
 
   return (
     <ul className="flex flex-col gap-2">
-      {blogs.map(({ title, description, created, url }) => {
+      {blogs.map(({ title, description, created, url, movedTo }) => {
         const createdDate = stringToDate(created);
         const oldDate = new Date().getTime() - (1000 * 60 * 60 * 24 * 30);
         const isNew = oldDate <= createdDate.getTime();
@@ -31,7 +31,7 @@ const BlogListSection: React.VFC<BlogListSectionProps> = ({ blogs }) => {
             key={createdDate.getTime().toString()}
             className="relative transition"
           >
-            <Link href={url} passHref>
+            <Link href={movedTo ?? url} passHref>
               <a className="cursor-pointer">
                 <div className="px-4 py-4 space-y-2 transition-[background-color] rounded-md sm:-mx-4 dark:bg-neutral-900 dark:hover:bg-neutral-800 hover:bg-neutral-100 bg-neutral-50">
                   {isNew && <div className="p-0.5 px-2 bg-amber-200 text-amber-900 text-xs w-fit rounded-full">

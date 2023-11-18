@@ -54,7 +54,7 @@ export const getBlogList = async (): Promise<BlogPost[]> => {
     const now = new Date();
     const releaseDate = new Date(properties["Release Date"].date?.start || 0);
 
-    if (properties.Status.select?.name !== "Complete") continue;
+    if (properties.Status.select?.name === "Draft") continue;
     if (releaseDate >= now) continue;
 
     const fileImage = page.cover?.type === "file" ? page.cover.file.url : "";
@@ -66,7 +66,8 @@ export const getBlogList = async (): Promise<BlogPost[]> => {
       cover: {
         url: fileImage || externalImage,
       },
-      status: properties.Status.select.name,
+      movedTo: properties.Redirect.rich_text?.[0]?.plain_text ?? null,
+      status: properties.Status.select!.name,
       created: page.created_time,
       title: properties.Name.title[0]?.plain_text || "Unknown Title",
       description: properties.Description.rich_text[0].plain_text,

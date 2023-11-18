@@ -11,6 +11,7 @@ const BlogPostPreview: React.VFC<BlogPost> = ({
   description,
   created,
   url,
+  movedTo
 }) => {
   const { current: loadedDate } = useRef<Date>(new Date());
 
@@ -22,7 +23,7 @@ const BlogPostPreview: React.VFC<BlogPost> = ({
   };
 
   return (
-    <Link href={url} passHref>
+    <Link href={movedTo ?? url} passHref>
       <a className="relative block font-light transition-transform cursor-pointer after:bg-transparent hover:-translate-y-1">
         <div className="flex items-center p-6 border rounded-md sm:-mx-6 border-neutral-300 dark:border-neutral-700">
           <div className="space-y-2">
