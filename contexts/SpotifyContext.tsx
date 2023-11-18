@@ -30,7 +30,7 @@ export const SpotifyProvider: React.FC = ({ children }) => {
     return () => clearInterval(interval);
   }, []);
 
-  const value = { spotifyData: null, updateSpotifyData: null };
+  const value = { spotifyData, updateSpotifyData };
 
   return (
     <SpotifyContext.Provider value={value}>{children}</SpotifyContext.Provider>
